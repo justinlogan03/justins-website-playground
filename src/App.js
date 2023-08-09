@@ -1,11 +1,14 @@
 import React from "react";
+import { TextSquare } from "./text-square";
 
-const App = () =>{
-    return (
-        <h1>
-            Hello world! I am using React
-        </h1>
-    )
-}
+const App = () => {
+  return (
+    <div>
+      <TextSquare />
+      <TextSquare />
+      <TextSquare />
+    </div>
+  );
+};
 
-export default App
+export default App;
