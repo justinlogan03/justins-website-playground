@@ -4,7 +4,7 @@ import { HomePageTabs } from "./home-page-tabs";
 
 export const HomePageContainer = () => {
   return (
-    <div>
+    <div className="container mx-auto">
       <HomePageCarousel />
       <HomePageTabs />
     </div>
