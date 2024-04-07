@@ -1,12 +1,10 @@
 import React from "react";
-import { TextSquare } from "./text-square";
+import { HomePageContainer } from "./home-page/home-page-container";
 
 const App = () => {
   return (
     <div>
-      <TextSquare />
-      <TextSquare />
-      <TextSquare />
+      <HomePageContainer />
     </div>
   );
 };
