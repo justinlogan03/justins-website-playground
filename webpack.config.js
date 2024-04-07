@@ -1,38 +1,48 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 module.exports = {
-  entry: './index.js',
-  mode: 'development',
+  entry: "./index.js",
+  mode: "development",
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'index_bundle.js',
+    path: path.resolve(__dirname, "./dist"),
+    filename: "index_bundle.js",
   },
-  target: 'web',
+  target: "web",
   devServer: {
-    port: '5000',
+    port: "5000",
     static: {
-      directory: path.join(__dirname, 'public')
-},
+      directory: path.join(__dirname, "public"),
+    },
     open: true,
     hot: true,
     liveReload: true,
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: [".js", ".jsx", ".json", ".tsx"],
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, 
-        exclude: /node_modules/, 
-        use: 'babel-loader', 
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: "babel-loader",
+      },
+      {
+        test: /\.tsx?$/,
+        loader: "babel-loader",
+        exclude: /((node_modules)|dist|graphql)/,
+      },
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader",
+        include: /graphql/,
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'public', 'index.html')
-    })
-  ]
+      template: path.join(__dirname, "public", "index.html"),
+    }),
+  ],
 };
