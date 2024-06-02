@@ -4,7 +4,7 @@ import { HomePageTabs } from "./home-page-tabs";
 
 export const HomePageContainer = () => {
   return (
-    <div className="container mx-auto bg-blue-950">
+    <div className="container mx-auto bg-gray-300">
       <div className="pt-8">
         <HomePageCarousel />
       </div>
