@@ -20,7 +20,7 @@ export const HomePageCarousel = () => {
   };
 
   return (
-    <div className="relative flex w-full bg-blue-300 h-96">
+    <div className="relative flex w-full mb-8 bg-blue-300 h-96">
       <div>
         <CarouselSlides currentSlide={currentSlide} />
       </div>
