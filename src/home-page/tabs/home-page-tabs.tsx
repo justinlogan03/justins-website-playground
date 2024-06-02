@@ -16,6 +16,7 @@ export const HomePageTabs = () => {
           tabOption={TabOption.NBA}
           selectedTab={selectedTab}
           setSelectedTab={setSelectedTab}
+          isFirst={true}
         >
           <SportsBasketballIcon />
         </TabButton>
@@ -31,16 +32,15 @@ export const HomePageTabs = () => {
           tabOption={TabOption.College}
           selectedTab={selectedTab}
           setSelectedTab={setSelectedTab}
+          isLast={true}
         >
           <SchoolIcon />
         </TabButton>
+        <div className="w-full border-b-2 border-r-0 border-blue-500"></div>
       </div>
       <div
-        className="flex w-full bg-gray-400"
+        className="flex w-full bg-white border-t-0 border-b-2 border-blue-500 border-x-2"
         style={{
-          borderTopRightRadius: "1%",
-          borderBottomRightRadius: "1%",
-          borderBottomLeftRadius: "1%",
           minHeight: "48rem",
         }}
       >

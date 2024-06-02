@@ -7,6 +7,8 @@ type Props = {
   selectedTab: TabOption;
   setSelectedTab: Dispatch<SetStateAction<TabOption>>;
   children: JSX.Element;
+  isFirst?: boolean;
+  isLast?: boolean;
 };
 
 export const TabButton = ({
@@ -14,12 +16,17 @@ export const TabButton = ({
   children,
   selectedTab,
   setSelectedTab,
+  isFirst = false,
+  isLast = false,
 }: Props) => {
   return (
     <button
-      className={classNames("w-32  ", {
-        " bg-gray-500": selectedTab !== tabOption,
-        " bg-gray-400": selectedTab === tabOption,
+      className={classNames("w-32   border-blue-500 border-t-2", {
+        " bg-blue-200 border-b-2": selectedTab !== tabOption,
+        " bg-white": selectedTab === tabOption,
+        "border-l-2 border-r": isFirst,
+        "border-l border-r-2": isLast,
+        "border-x-2": !isFirst && !isLast,
       })}
       style={{ borderTopLeftRadius: "25%", borderTopRightRadius: "25%" }}
       onClick={() => {
