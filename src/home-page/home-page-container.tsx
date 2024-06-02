@@ -8,7 +8,7 @@ export const HomePageContainer = () => {
       <div className="pt-8">
         <HomePageCarousel />
       </div>
-      <div className="pb-8">
+      <div className="pb-8 ">
         <HomePageTabs />
       </div>
     </div>

@@ -25,7 +25,7 @@ export const HomePageCarousel = () => {
         <CarouselSlides currentSlide={currentSlide} />
       </div>
       <button
-        className="absolute w-12 h-12 my-48 ml-8 hover:bg-gray-200 hover:opacity-40"
+        className="absolute w-12 h-12 my-48 ml-8 bg-gray-200 opacity-50 hover:opacity-80"
         style={{ borderRadius: "50%" }}
         onClick={() => {
           onSlideChange(-1);
@@ -34,7 +34,7 @@ export const HomePageCarousel = () => {
         <ArrowBackIosNewIcon />
       </button>
       <button
-        className="absolute right-0 w-12 h-12 my-48 mr-8 hover:bg-gray-200 hover:opacity-40"
+        className="absolute right-0 w-12 h-12 my-48 mr-8 bg-gray-200 opacity-50 hover:opacity-80"
         style={{ borderRadius: "50%" }}
         onClick={() => {
           onSlideChange(+1);
