@@ -19,7 +19,7 @@ module.exports = {
     liveReload: true,
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json", ".tsx"],
+    extensions: [".js", ".jsx", ".json", ".tsx", ".jpg"],
   },
   module: {
     rules: [
@@ -37,6 +37,12 @@ module.exports = {
         test: /\.tsx?$/,
         loader: "ts-loader",
         include: /graphql/,
+      },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: "url-loader",
+        },
       },
     ],
   },
