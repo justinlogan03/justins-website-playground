@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CarouselSlide, HOME_CAROUSEL_SLIDES } from "../constants";
 import { CarouselSlides } from "./carousel-slides";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -11,13 +11,24 @@ export const HomePageCarousel = () => {
   );
 
   const onSlideChange = (changeAmount: number) => {
-    const newSlide = changeSlide({
-      changeAmount,
-      slideList: HOME_CAROUSEL_SLIDES,
-      currentSlide,
+    setCurrentSlide((prev) => {
+      const newSlide = changeSlide({
+        changeAmount,
+        slideList: HOME_CAROUSEL_SLIDES,
+        currentSlide: prev,
+      });
+      return newSlide;
     });
-    setCurrentSlide(newSlide);
   };
+
+  useEffect(() => {
+    const intervalID = setInterval(() => {
+      console.log(currentSlide);
+      onSlideChange(1);
+    }, 10000);
+
+    return () => clearInterval(intervalID);
+  }, []);
 
   return (
     <div className="relative flex w-full mb-8 bg-blue-300 h-96">
@@ -37,7 +48,7 @@ export const HomePageCarousel = () => {
         className="absolute right-0 w-12 h-12 my-48 mr-8 bg-gray-200 opacity-50 hover:opacity-80"
         style={{ borderRadius: "50%" }}
         onClick={() => {
-          onSlideChange(+1);
+          onSlideChange(1);
         }}
       >
         <ArrowForwardIosIcon />
