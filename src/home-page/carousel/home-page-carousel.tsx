@@ -7,7 +7,7 @@ import { changeSlide } from "../helpers/carousel-helpers";
 
 export const HomePageCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState<CarouselSlide>(
-    CarouselSlide.SlideOne
+    HOME_CAROUSEL_SLIDES[0]
   );
 
   const onSlideChange = (changeAmount: number) => {

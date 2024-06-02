@@ -1,6 +1,6 @@
 import React from "react";
 import { HomePageCarousel } from "./carousel/home-page-carousel";
-import { HomePageTabs } from "./home-page-tabs";
+import { HomePageTabs } from "./tabs/home-page-tabs";
 
 export const HomePageContainer = () => {
   return (

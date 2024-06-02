@@ -11,11 +11,11 @@ type Props = {
 
 export const CarouselSlides = ({ currentSlide }: Props) => {
   switch (currentSlide) {
-    case CarouselSlide.SlideOne:
+    case CarouselSlide.Celtics:
       return <Slide image={celticsImage} verticalPosition={30} />;
-    case CarouselSlide.SlideTwo:
+    case CarouselSlide.Patriots:
       return <Slide image={patriotsImage} verticalPosition={50} />;
-    case CarouselSlide.SlideThree:
+    case CarouselSlide.UVA:
       return <Slide image={uvaImage} verticalPosition={70} />;
   }
 };

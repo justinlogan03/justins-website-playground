@@ -1,11 +1,17 @@
 export enum CarouselSlide {
-  SlideOne = 1,
-  SlideTwo = 2,
-  SlideThree = 3,
+  Celtics = 1,
+  Patriots = 2,
+  UVA = 3,
 }
 
 export const HOME_CAROUSEL_SLIDES = [
-  CarouselSlide.SlideOne,
-  CarouselSlide.SlideTwo,
-  CarouselSlide.SlideThree,
+  CarouselSlide.Celtics,
+  CarouselSlide.Patriots,
+  CarouselSlide.UVA,
 ];
+
+export enum TabOption {
+  NBA = 1,
+  NFL = 2,
+  College = 3,
+}
