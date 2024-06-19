@@ -19,7 +19,7 @@ module.exports = {
     liveReload: true,
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json", ".tsx", ".jpg"],
+    extensions: [".js", ".jsx", ".json", ".tsx", ".jpg", ".css"],
   },
   module: {
     rules: [
@@ -43,6 +43,10 @@ module.exports = {
         use: {
           loader: "url-loader",
         },
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },

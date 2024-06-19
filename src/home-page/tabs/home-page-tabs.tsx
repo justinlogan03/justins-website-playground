@@ -43,15 +43,7 @@ export const HomePageTabs = () => {
         ></div>
       </div>
 
-      <div
-        className="grid w-full bg-white border-b-2 border-blue-500 border-x-2"
-        style={{
-          minHeight: "48rem",
-          borderBottomLeftRadius: "12px",
-          borderBottomRightRadius: "12px",
-          borderTopRightRadius: "12px",
-        }}
-      >
+      <div className="grid w-full bg-white border-b-2 border-blue-500 rounded-bottom border-x-2 rounded-b-xl rounded-tr-xl tab-height">
         <TabBodySwitcher selectedTab={selectedTab} />
       </div>
     </div>

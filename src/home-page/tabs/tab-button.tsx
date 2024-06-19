@@ -21,14 +21,13 @@ export const TabButton = ({
 }: Props) => {
   return (
     <button
-      className={classNames("w-32   border-blue-500 border-t-2", {
+      className={classNames("w-32 border-blue-500 border-t-2 rounded-t-xl", {
         " bg-blue-200 border-b-2": selectedTab !== tabOption,
         " bg-white": selectedTab === tabOption,
         "border-l-2 border-r": isFirst,
         "border-l border-r-2": isLast,
         "border-x-2": !isFirst && !isLast,
       })}
-      style={{ borderTopLeftRadius: "12px", borderTopRightRadius: "12px" }}
       onClick={() => {
         setSelectedTab(tabOption);
       }}

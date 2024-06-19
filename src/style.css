@@ -1,0 +1,11 @@
+.background {
+  background-color: #19191b;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.tab-height {
+  min-height: 48rem;
+}

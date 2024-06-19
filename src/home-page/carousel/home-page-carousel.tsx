@@ -4,6 +4,7 @@ import { CarouselSlides } from "./carousel-slides";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { changeSlide } from "../helpers/carousel-helpers";
+import "/src/style.css";
 
 export const HomePageCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState<CarouselSlide>(
@@ -31,16 +32,12 @@ export const HomePageCarousel = () => {
   }, []);
 
   return (
-    <div
-      className="relative flex w-full mb-8 bg-blue-300 h-96"
-      style={{ borderRadius: "12px" }}
-    >
+    <div className="relative flex w-full mb-8">
       <div>
         <CarouselSlides currentSlide={currentSlide} />
       </div>
       <button
-        className="absolute w-12 h-12 my-48 ml-8 bg-gray-200 opacity-50 hover:opacity-80"
-        style={{ borderRadius: "50%" }}
+        className="absolute w-12 h-12 my-48 ml-8 bg-gray-200 opacity-50 hover:opacity-80 circle"
         onClick={() => {
           onSlideChange(-1);
         }}
@@ -48,8 +45,7 @@ export const HomePageCarousel = () => {
         <ArrowBackIosNewIcon />
       </button>
       <button
-        className="absolute right-0 w-12 h-12 my-48 mr-8 bg-gray-200 opacity-50 hover:opacity-80"
-        style={{ borderRadius: "50%" }}
+        className="absolute right-0 w-12 h-12 my-48 mr-8 bg-gray-200 opacity-50 hover:opacity-80 circle"
         onClick={() => {
           onSlideChange(1);
         }}
