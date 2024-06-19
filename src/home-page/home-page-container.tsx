@@ -5,7 +5,7 @@ import "/src/style.css";
 
 export const HomePageContainer = () => {
   return (
-    <div className="container mx-auto background">
+    <div className="container mx-auto backdrop">
       <div className="pt-8">
         <HomePageCarousel />
       </div>

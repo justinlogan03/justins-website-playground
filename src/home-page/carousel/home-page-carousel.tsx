@@ -32,12 +32,12 @@ export const HomePageCarousel = () => {
   }, []);
 
   return (
-    <div className="relative flex w-full mb-8">
+    <div className="relative flex w-full mb-8 teal-shadow rounded-xl">
       <div>
         <CarouselSlides currentSlide={currentSlide} />
       </div>
       <button
-        className="absolute w-12 h-12 my-48 ml-8 bg-gray-200 opacity-50 hover:opacity-80 circle"
+        className="absolute w-12 h-12 my-48 ml-8 opacity-60 selectable-background teal-text hover:opacity-80 circle"
         onClick={() => {
           onSlideChange(-1);
         }}
@@ -45,7 +45,7 @@ export const HomePageCarousel = () => {
         <ArrowBackIosNewIcon />
       </button>
       <button
-        className="absolute right-0 w-12 h-12 my-48 mr-8 bg-gray-200 opacity-50 hover:opacity-80 circle"
+        className="absolute right-0 w-12 h-12 my-48 mr-8 opacity-60 selectable-background teal-text hover:opacity-80 circle"
         onClick={() => {
           onSlideChange(1);
         }}
