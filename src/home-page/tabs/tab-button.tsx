@@ -28,7 +28,7 @@ export const TabButton = ({
         "border-l border-r-2": isLast,
         "border-x-2": !isFirst && !isLast,
       })}
-      style={{ borderTopLeftRadius: "25%", borderTopRightRadius: "25%" }}
+      style={{ borderTopLeftRadius: "12px", borderTopRightRadius: "12px" }}
       onClick={() => {
         setSelectedTab(tabOption);
       }}

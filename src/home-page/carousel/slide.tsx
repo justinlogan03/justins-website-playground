@@ -14,6 +14,7 @@ export const Slide = ({ image, verticalPosition = 0 }: Props) => {
           width: "100rem",
           objectFit: "cover",
           objectPosition: `0 ${verticalPosition}%`,
+          borderRadius: "12px",
         }}
       />
     </div>

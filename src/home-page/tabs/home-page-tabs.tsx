@@ -10,7 +10,7 @@ import { TabBodySwitcher } from "./tab-body-switcher";
 export const HomePageTabs = () => {
   const [selectedTab, setSelectedTab] = useState<TabOption>(TabOption.NBA);
   return (
-    <div>
+    <div className="relative">
       <div className="flex w-full h-12 ">
         <TabButton
           tabOption={TabOption.NBA}
@@ -36,12 +36,20 @@ export const HomePageTabs = () => {
         >
           <SchoolIcon />
         </TabButton>
-        <div className="w-full border-b-2 border-r-0 border-blue-500"></div>
+        {/** Used to make the top border curved. Border radius and margin are to account for h-12 of tabs*/}
+        <div
+          className="w-full h-12 border-t-2 border-r-0 border-blue-500"
+          style={{ borderTopRightRadius: "14px", marginTop: "46px" }}
+        ></div>
       </div>
+
       <div
-        className="flex w-full bg-white border-t-0 border-b-2 border-blue-500 border-x-2"
+        className="grid w-full bg-white border-b-2 border-blue-500 border-x-2"
         style={{
           minHeight: "48rem",
+          borderBottomLeftRadius: "12px",
+          borderBottomRightRadius: "12px",
+          borderTopRightRadius: "12px",
         }}
       >
         <TabBodySwitcher selectedTab={selectedTab} />
