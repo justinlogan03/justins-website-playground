@@ -27,9 +27,13 @@
 }
 
 .teal-text {
-  color: #b0f2e8;
+  color: #75cec1;
 }
 
 .teal-shadow {
   box-shadow: 0px 8px 20px #75cec1;
+}
+
+.icon-color {
+  color: white;
 }

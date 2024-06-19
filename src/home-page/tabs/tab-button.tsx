@@ -23,7 +23,7 @@ export const TabButton = ({
   return (
     <button
       className={classNames(
-        "w-32 content-border border-t-2 rounded-t-xl teal-text",
+        "w-32 content-border border-t-2 rounded-t-xl icon-color",
         {
           "selectable-background border-b-2": selectedTab !== tabOption,
           "content-backdrop": selectedTab === tabOption,
