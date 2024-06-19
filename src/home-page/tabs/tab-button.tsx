@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { TabOption } from "../constants";
 import classNames from "classnames";
+import "/src/style.css";
 
 type Props = {
   tabOption: TabOption;
@@ -21,14 +22,16 @@ export const TabButton = ({
 }: Props) => {
   return (
     <button
-      className={classNames("w-32   border-blue-500 border-t-2", {
-        " bg-blue-200 border-b-2": selectedTab !== tabOption,
-        " bg-white": selectedTab === tabOption,
-        "border-l-2 border-r": isFirst,
-        "border-l border-r-2": isLast,
-        "border-x-2": !isFirst && !isLast,
-      })}
-      style={{ borderTopLeftRadius: "25%", borderTopRightRadius: "25%" }}
+      className={classNames(
+        "w-32 content-border border-t-2 rounded-t-xl icon-color",
+        {
+          "selectable-background border-b-2": selectedTab !== tabOption,
+          "content-backdrop": selectedTab === tabOption,
+          "border-l-2 border-r": isFirst,
+          "border-l border-r-2": isLast,
+          "border-x-2": !isFirst && !isLast,
+        }
+      )}
       onClick={() => {
         setSelectedTab(tabOption);
       }}

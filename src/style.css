@@ -1,0 +1,39 @@
+.circle {
+  border-radius: 50%;
+}
+
+.tab-height {
+  min-height: 48rem;
+}
+
+.backdrop {
+  background-color: #111113;
+}
+
+.content-backdrop {
+  background-color: #101c1a;
+}
+
+.content-border {
+  border-color: #1a6960;
+}
+
+.selectable-background {
+  background-color: #003b35;
+}
+
+.selectable-background:hover {
+  background-color: #034841;
+}
+
+.teal-text {
+  color: #75cec1;
+}
+
+.teal-shadow {
+  box-shadow: 0px 8px 20px #75cec1;
+}
+
+.icon-color {
+  color: white;
+}

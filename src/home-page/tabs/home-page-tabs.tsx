@@ -6,11 +6,12 @@ import SportsFootballIcon from "@mui/icons-material/SportsFootball";
 import SchoolIcon from "@mui/icons-material/School";
 import { TabButton } from "./tab-button";
 import { TabBodySwitcher } from "./tab-body-switcher";
+import "/src/style.css";
 
 export const HomePageTabs = () => {
   const [selectedTab, setSelectedTab] = useState<TabOption>(TabOption.NBA);
   return (
-    <div>
+    <div className="relative">
       <div className="flex w-full h-12 ">
         <TabButton
           tabOption={TabOption.NBA}
@@ -36,14 +37,14 @@ export const HomePageTabs = () => {
         >
           <SchoolIcon />
         </TabButton>
-        <div className="w-full border-b-2 border-r-0 border-blue-500"></div>
+        {/** Used to make the top border curved. Border radius and margin are to account for h-12 of tabs*/}
+        <div
+          className="w-full h-12 border-t-2 border-r-0 content-border"
+          style={{ borderTopRightRadius: "14px", marginTop: "46px" }}
+        ></div>
       </div>
-      <div
-        className="flex w-full bg-white border-t-0 border-b-2 border-blue-500 border-x-2"
-        style={{
-          minHeight: "48rem",
-        }}
-      >
+
+      <div className="grid w-full border-b-2 content-border content-backdrop rounded-bottom border-x-2 rounded-b-xl rounded-tr-xl tab-height">
         <TabBodySwitcher selectedTab={selectedTab} />
       </div>
     </div>
