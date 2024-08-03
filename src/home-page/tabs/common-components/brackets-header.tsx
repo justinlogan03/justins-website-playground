@@ -5,7 +5,7 @@ import "/src/style.css";
 export const BracketsHeader = () => {
   return (
     <div>
-      <h2 className="flex w-1/3 p-2 mb-4 text-lg font-bold teal-text">
+      <h2 className="flex w-1/3 p-2 text-lg font-bold teal-text">
         <p className="mr-2 icon-color">
           <ScoreboardIcon />
         </p>
