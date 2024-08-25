@@ -6,7 +6,7 @@ type Props = {
   children: ReactNode;
 };
 
-export const BodyTemplate = ({ children, headerLabel }: Props) => {
+export const HomePageTemplate = ({ children, headerLabel }: Props) => {
   return (
     <div className="mx-8 my-6 ">
       <h1 className="w-1/2 p-2 mb-4 text-3xl font-bold border-b-2 content-border teal-text">

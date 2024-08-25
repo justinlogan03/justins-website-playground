@@ -4,8 +4,9 @@ import { TabOption } from "../constants";
 import SportsBasketballIcon from "@mui/icons-material/SportsBasketball";
 import SportsFootballIcon from "@mui/icons-material/SportsFootball";
 import SchoolIcon from "@mui/icons-material/School";
+import SurfingIcon from "@mui/icons-material/Surfing";
 import { TabButton } from "./tab-button";
-import { TabBodySwitcher } from "./tab-body-switcher";
+import { TabHomePageSwitcher } from "./tab-home-page-switcher";
 import "/src/style.css";
 
 export const HomePageTabs = () => {
@@ -13,6 +14,7 @@ export const HomePageTabs = () => {
   return (
     <div className="relative">
       <div className="flex w-full h-12 ">
+        {/** NBA tab - - - - - - */}
         <TabButton
           tabOption={TabOption.NBA}
           selectedTab={selectedTab}
@@ -21,7 +23,7 @@ export const HomePageTabs = () => {
         >
           <SportsBasketballIcon />
         </TabButton>
-
+        {/** NFL tab - - - - - - */}
         <TabButton
           tabOption={TabOption.NFL}
           selectedTab={selectedTab}
@@ -29,6 +31,7 @@ export const HomePageTabs = () => {
         >
           <SportsFootballIcon />
         </TabButton>
+        {/** College tab - - - - - - */}
         <TabButton
           tabOption={TabOption.College}
           selectedTab={selectedTab}
@@ -36,6 +39,15 @@ export const HomePageTabs = () => {
           isLast={true}
         >
           <SchoolIcon />
+        </TabButton>
+        {/** For Fun tab - - - - - - */}
+        <TabButton
+          tabOption={TabOption.Fun}
+          selectedTab={selectedTab}
+          setSelectedTab={setSelectedTab}
+          isLast={true}
+        >
+          <SurfingIcon />
         </TabButton>
         {/** Used to make the top border curved. Border radius and margin are to account for h-12 of tabs*/}
         <div
@@ -45,7 +57,7 @@ export const HomePageTabs = () => {
       </div>
 
       <div className="grid w-full border-b-2 content-border content-backdrop rounded-bottom border-x-2 rounded-b-xl rounded-tr-xl tab-height">
-        <TabBodySwitcher selectedTab={selectedTab} />
+        <TabHomePageSwitcher selectedTab={selectedTab} />
       </div>
     </div>
   );

@@ -14,4 +14,5 @@ export enum TabOption {
   NBA = 1,
   NFL = 2,
   College = 3,
+  Fun = 4,
 }

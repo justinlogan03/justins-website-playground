@@ -1,11 +1,11 @@
 import React from "react";
 import ScoreboardIcon from "@mui/icons-material/Scoreboard";
 import "/src/style.css";
-
+//TODO - remove these. Just placeholders for the real thing
 export const BracketsHeader = () => {
   return (
     <div>
-      <h2 className="flex w-1/3 p-2 mb-4 text-lg font-bold teal-text">
+      <h2 className="flex w-1/3 p-2 text-lg font-bold teal-text">
         <p className="mr-2 icon-color">
           <ScoreboardIcon />
         </p>
