@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, ReactNode, SetStateAction } from "react";
 import { TabOption } from "../constants";
 import classNames from "classnames";
 import "/src/style.css";
@@ -7,7 +7,7 @@ type Props = {
   tabOption: TabOption;
   selectedTab: TabOption;
   setSelectedTab: Dispatch<SetStateAction<TabOption>>;
-  children: JSX.Element;
+  children: ReactNode;
   isFirst?: boolean;
   isLast?: boolean;
 };
