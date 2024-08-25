@@ -2,6 +2,7 @@ import React from "react";
 import GamesIcon from "@mui/icons-material/Games";
 import "/src/style.css";
 
+//TODO - remove these. Just placeholders for the real thing
 export const GamesHeader = () => {
   return (
     <div>

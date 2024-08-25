@@ -6,7 +6,7 @@ import SportsFootballIcon from "@mui/icons-material/SportsFootball";
 import SchoolIcon from "@mui/icons-material/School";
 import SurfingIcon from "@mui/icons-material/Surfing";
 import { TabButton } from "./tab-button";
-import { TabBodySwitcher } from "./tab-body-switcher";
+import { TabHomePageSwitcher } from "./tab-home-page-switcher";
 import "/src/style.css";
 
 export const HomePageTabs = () => {
@@ -57,7 +57,7 @@ export const HomePageTabs = () => {
       </div>
 
       <div className="grid w-full border-b-2 content-border content-backdrop rounded-bottom border-x-2 rounded-b-xl rounded-tr-xl tab-height">
-        <TabBodySwitcher selectedTab={selectedTab} />
+        <TabHomePageSwitcher selectedTab={selectedTab} />
       </div>
     </div>
   );

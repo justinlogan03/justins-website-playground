@@ -2,6 +2,7 @@ import React from "react";
 import ArticleIcon from "@mui/icons-material/Article";
 import "/src/style.css";
 
+//TODO - remove these. Just placeholders for the real thing
 export const OpinionsHeader = () => {
   return (
     <div>
