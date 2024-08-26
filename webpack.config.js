@@ -17,6 +17,7 @@ module.exports = {
     open: true,
     hot: true,
     liveReload: true,
+    historyApiFallback: true,
   },
   resolve: {
     extensions: [".js", ".jsx", ".json", ".tsx", ".jpg", ".css"],
@@ -53,6 +54,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
+      publicPath: "/",
     }),
   ],
 };

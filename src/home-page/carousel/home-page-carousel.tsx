@@ -24,7 +24,6 @@ export const HomePageCarousel = () => {
 
   useEffect(() => {
     const intervalID = setInterval(() => {
-      console.log(currentSlide);
       onSlideChange(1);
     }, 10000);
 

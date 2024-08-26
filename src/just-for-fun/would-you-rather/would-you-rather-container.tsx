@@ -1,4 +1,4 @@
 import React from "react";
-export const WouldYourRatherContainer = () => {
-  return <div>TEST</div>;
+export const WouldYouRatherContainer = () => {
+  return <div className="text-white">TEST</div>;
 };
