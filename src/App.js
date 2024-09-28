@@ -6,21 +6,20 @@ import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
 //TODO - clean this up to have a good home button. Routes not working on refresh. need to implement server side
 const Layout = () => {
   return (
-    <></>
-    // <>
-    //   <nav>
-    //     <ul>
-    //       <li className="text-white">
-    //         <Link to="/home">Home</Link>
-    //       </li>
-    //       <li className="text-white">
-    //         <Link to="/fun/wouldyourather">Would You Rather</Link>
-    //       </li>
-    //     </ul>
-    //   </nav>
+    <>
+      <nav>
+        <ul>
+          <li className="text-white">
+            <Link to="/home">Home</Link>
+          </li>
+          <li className="text-white">
+            <Link to="/fun/wouldyourather">Would You Rather</Link>
+          </li>
+        </ul>
+      </nav>
 
-    //   <Outlet />
-    // </>
+      <Outlet />
+    </>
   );
 };
 
@@ -29,16 +28,15 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<Layout />}> */}{" "}
-          {/** TODO: uncomment this */}
-          <Route index element={<HomePageContainer />} />
-          <Route path="/home" element={<HomePageContainer />} />
-          <Route
-            path="/fun/wouldyourather"
-            element={<WouldYouRatherContainer />}
-          />
-          <Route path="*" element={<HomePageContainer />} />
-          {/* </Route> */}
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePageContainer />} />
+            <Route path="/home" element={<HomePageContainer />} />
+            <Route
+              path="/fun/wouldyourather"
+              element={<WouldYouRatherContainer />}
+            />
+            <Route path="*" element={<HomePageContainer />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
