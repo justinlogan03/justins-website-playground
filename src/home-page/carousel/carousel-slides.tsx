@@ -1,5 +1,5 @@
 import React from "react";
-import { CarouselSlide } from "../constants";
+import { CarouselSlide } from "../../constants";
 import celticsImage from "../images/tatum.jpg";
 import patriotsImage from "../images/brady.jpg";
 import uvaImage from "../images/uva.jpg";

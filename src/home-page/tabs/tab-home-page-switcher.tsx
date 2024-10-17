@@ -1,5 +1,5 @@
 import React from "react";
-import { TabOption } from "../constants";
+import { TabOption } from "../../constants";
 
 import { JustForFunHomePage } from "../../just-for-fun/just-for-fun-home-page";
 import { NBAHomePage } from "../../nba-basketball/nba-home-page";

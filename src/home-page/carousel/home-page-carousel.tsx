@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CarouselSlide, HOME_CAROUSEL_SLIDES } from "../constants";
+import { CarouselSlide, HOME_CAROUSEL_SLIDES } from "../../constants";
 import { CarouselSlides } from "./carousel-slides";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";

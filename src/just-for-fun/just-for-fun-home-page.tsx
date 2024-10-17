@@ -10,6 +10,7 @@ export const JustForFunHomePage = () => {
         <HomePageItem
           title="Would You Rather?"
           description="Mock description for would you rather"
+          link="/#/fun/wouldyourather"
         />
       </GamesSubHeader>
     </HomePageTemplate>

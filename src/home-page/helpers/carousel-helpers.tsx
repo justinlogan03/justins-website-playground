@@ -1,4 +1,4 @@
-import { CarouselSlide } from "../constants";
+import { CarouselSlide } from "../../constants";
 
 export const changeSlide = ({
   changeAmount,

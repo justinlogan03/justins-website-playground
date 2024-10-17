@@ -7,11 +7,17 @@ type Props = {
   description: string;
 };
 
-export const HomePageItem = ({ title, description }: Props) => {
+export const HomePageItem = ({ title, description, link = "" }: Props) => {
   return (
     <div className="flex mb-4">
       <image className="w-48 mr-4 bg-gray-400 h-36 rounded-xl min-w-48"></image>
-      <div className="w-full p-4 selectable-background rounded-xl">
+      <div
+        className="w-full p-4 selectable-background rounded-xl cursor-pointer"
+        onClick={(e) => {
+          e.preventDefault();
+          window.location.href = link;
+        }}
+      >
         <h3 className="font-bold teal-text">{title}</h3>
         <p className="text-white ">{description}</p>
       </div>
