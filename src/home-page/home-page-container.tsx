@@ -5,8 +5,8 @@ import "/src/style.css";
 
 export const HomePageContainer = () => {
   return (
-    <div className="container mx-auto backdrop">
-      <div className="pt-8">
+    <div>
+      <div className="pt-4">
         <HomePageCarousel />
       </div>
       <div className="pb-8 ">

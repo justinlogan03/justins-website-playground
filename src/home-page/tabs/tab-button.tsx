@@ -1,5 +1,5 @@
 import React, { Dispatch, ReactNode, SetStateAction } from "react";
-import { TabOption } from "../constants";
+import { TabOption } from "../../constants";
 import classNames from "classnames";
 import "/src/style.css";
 
