@@ -2,8 +2,14 @@ import { MOCK_WOULD_YOU_RATHER_LIST } from "../constants";
 import { CurrentPrompt, PromptValue } from "../types";
 
 export const getRandomPrompts = (
+  isPromptOneLocked: boolean,
+  isPromptTwoLocked: boolean,
   currentPrompt?: CurrentPrompt
 ): CurrentPrompt => {
+  if (isPromptOneLocked && isPromptTwoLocked && currentPrompt) {
+    return currentPrompt;
+  }
+
   const availablePrompts = currentPrompt
     ? MOCK_WOULD_YOU_RATHER_LIST.filter((prompt) => {
         return (
@@ -12,7 +18,7 @@ export const getRandomPrompts = (
         );
       })
     : MOCK_WOULD_YOU_RATHER_LIST;
-  console.log(availablePrompts);
+
   const newPromptOne: PromptValue =
     availablePrompts[Math.floor(Math.random() * (availablePrompts.length - 1))];
 
@@ -24,5 +30,14 @@ export const getRandomPrompts = (
       Math.floor(Math.random() * (availablePrompts.length - 1))
     ];
 
-  return { optionOne: newPromptOne, optionTwo: newPromptTwo };
+  return {
+    optionOne:
+      isPromptOneLocked && currentPrompt
+        ? currentPrompt?.optionOne
+        : newPromptOne,
+    optionTwo:
+      isPromptTwoLocked && currentPrompt
+        ? currentPrompt?.optionTwo
+        : newPromptTwo,
+  };
 };
