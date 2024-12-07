@@ -18,12 +18,27 @@
   border-color: #1a6960;
 }
 
+.card-background {
+  background-color: #003b35;
+}
+
 .selectable-background {
   background-color: #003b35;
 }
 
 .selectable-background:hover {
   background-color: #034841;
+}
+
+.selectable-background:active {
+  border-width: 2px;
+  border-color: #248479;
+}
+
+.locked-border {
+  border-color: #248479;
+  border-style: dashed;
+  border-width: 2px;
 }
 
 .teal-text {
