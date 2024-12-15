@@ -1,3 +1,15 @@
+**About:**
+- Project is a collection of my idea's in one centralized location. I may launch the website some day, I may not. The main goal is to put all my idea's into one spot and to grow and develop new techniques.
+
+**Current Project: (last updated 12/15/2024)**
+- Homepage:
+-   ![image](https://github.com/user-attachments/assets/ef64bd28-8ee0-4671-8635-4b26a439eb27)
+-   ![image](https://github.com/user-attachments/assets/e1cce668-b8e5-48ff-9a41-2d0380d0ceba)
+
+- Would You Rather:
+-   ![image](https://github.com/user-attachments/assets/e8601b3e-b205-4cfa-aec3-111901c111be)
+
+
 **Run Project:** <br />
   1.) npx tailwindcss -i ./input.css -o ./public/output.css --watch <br />
 2.) npm start <br />
