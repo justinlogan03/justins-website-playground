@@ -8,7 +8,8 @@
 ![image](https://github.com/user-attachments/assets/e1cce668-b8e5-48ff-9a41-2d0380d0ceba)
 
 **- Would You Rather:**<br />
-  ![image](https://github.com/user-attachments/assets/e8601b3e-b205-4cfa-aec3-111901c111be)
+![image](https://github.com/user-attachments/assets/57201252-37c8-4244-8d0d-34498ed061d8)
+
 
 - - - 
 
