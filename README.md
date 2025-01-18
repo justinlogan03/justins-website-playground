@@ -10,6 +10,10 @@
 **- Would You Rather:**<br />
 ![image](https://github.com/user-attachments/assets/57201252-37c8-4244-8d0d-34498ed061d8)
 
+**- Darn Marino Article (unfinished, still needs styling and cleanup):**<br />
+![image](https://github.com/user-attachments/assets/cfd7d9e8-8d27-4e09-bbde-95ffd7db2ff0)
+
+
 
 - - - 
 
