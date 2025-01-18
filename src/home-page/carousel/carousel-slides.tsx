@@ -1,8 +1,8 @@
 import React from "react";
 import { CarouselSlide } from "../../constants";
-import celticsImage from "../images/tatum.jpg";
-import patriotsImage from "../images/brady.jpg";
-import uvaImage from "../images/uva.jpg";
+import celticsImage from "../images/celtics-championship-image.jpg";
+import danMarinoImage from "../images/dan-marino.jpg";
+import uvaImage from "../images/uva-image.jpg";
 import { Slide } from "./slide";
 
 type Props = {
@@ -12,10 +12,10 @@ type Props = {
 export const CarouselSlides = ({ currentSlide }: Props) => {
   switch (currentSlide) {
     case CarouselSlide.Celtics:
-      return <Slide image={celticsImage} verticalPosition={30} />;
+      return <Slide image={celticsImage} verticalPosition={15} />;
     case CarouselSlide.Patriots:
-      return <Slide image={patriotsImage} verticalPosition={50} />;
+      return <Slide image={danMarinoImage} verticalPosition={20} />;
     case CarouselSlide.UVA:
-      return <Slide image={uvaImage} verticalPosition={70} />;
+      return <Slide image={uvaImage} verticalPosition={50} />;
   }
 };

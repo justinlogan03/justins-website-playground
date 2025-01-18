@@ -3,14 +3,32 @@ import React from "react";
 type Props = {
   title: string;
   image?: string;
+  imageVerticalPosition?: number;
   link?: string;
   description: string;
 };
 
-export const HomePageItem = ({ title, description, link = "" }: Props) => {
+export const HomePageItem = ({
+  title,
+  image,
+  imageVerticalPosition = 0,
+  description,
+  link = "",
+}: Props) => {
   return (
     <div className="flex mb-4">
-      <image className="w-48 mr-4 bg-gray-400 h-36 rounded-xl min-w-48"></image>
+      {image ? (
+        <img
+          src={image}
+          className="w-48 mr-4 bg-gray-400 h-36 rounded-xl min-w-48 object-cover"
+          style={{
+            objectPosition: `0 ${imageVerticalPosition}%`,
+          }}
+        ></img>
+      ) : (
+        <div className="w-48 mr-4 bg-gray-400 h-36 rounded-xl min-w-48"></div>
+      )}
+
       <div
         className="w-full p-4 selectable-background rounded-xl cursor-pointer"
         onClick={(e) => {

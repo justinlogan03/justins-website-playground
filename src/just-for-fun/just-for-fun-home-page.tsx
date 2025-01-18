@@ -2,6 +2,7 @@ import React from "react";
 import { GamesSubHeader } from "../home-page/tabs/home-page-sub-headers/games-sub-header";
 import { HomePageTemplate } from "../home-page/tabs/home-page-template";
 import { HomePageItem } from "../home-page/tabs/home-page-item";
+import wouldYouRatherThumbnail from "./images/would-you-rather-thumbnail.jpg";
 
 export const JustForFunHomePage = () => {
   return (
@@ -11,6 +12,7 @@ export const JustForFunHomePage = () => {
           title="Would You Rather?"
           description="Mock description for would you rather"
           link="/#/fun/wouldyourather"
+          image={wouldYouRatherThumbnail}
         />
       </GamesSubHeader>
     </HomePageTemplate>
