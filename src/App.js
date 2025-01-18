@@ -1,6 +1,7 @@
 import React from "react";
 import { HomePageContainer } from "./home-page/home-page-container";
 import { WouldYouRatherContainer } from "./just-for-fun/would-you-rather/would-you-rather-container";
+import { DanMarinoContainer } from "./nfl-football/dan-marino/dan-marino-container";
 import { Routes, Route, Outlet, Link, HashRouter } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 
@@ -34,6 +35,10 @@ const App = () => {
             <Route
               path="/fun/wouldyourather"
               element={<WouldYouRatherContainer />}
+            />
+            <Route
+              path="/nfl/dan-marino-1985"
+              element={<DanMarinoContainer />}
             />
             <Route path="*" element={<HomePageContainer />} />
           </Route>

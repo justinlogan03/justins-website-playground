@@ -8,18 +8,10 @@ export const NFLHomePage = () => {
     <HomePageTemplate headerLabel="NFL">
       <OpinionsSubHeader>
         <HomePageItem
-          title="Mock NFL Opinion 1"
-          description=" Here is the preview text for Mock Opinion 1. I want it to multiple
-            lines so I will continue to type until it does so. This is mock text
-            and the real text will be stored somewhere else. For now this is
-            what I will do until I figure out the db solution."
-        />
-        <HomePageItem
-          title="Mock NFL Opinion 2"
-          description=" Here is the preview text for Mock Opinion 1. I want it to multiple
-            lines so I will continue to type until it does so. This is mock text
-            and the real text will be stored somewhere else. For now this is
-            what I will do until I figure out the db solution."
+          title=" Dan Marino - Why 1985 was the best sports season ever"
+          description="Why is Dan Marino in such high regard with such little playoff success? The answer is 1985. Many considered Dan Marino ahead of his time.
+          His success in 1985 will never be replicated"
+          link="/#/nfl/dan-marino-1985"
         />
       </OpinionsSubHeader>
     </HomePageTemplate>
