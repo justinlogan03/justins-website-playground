@@ -37,7 +37,7 @@ const App = () => {
               element={<WouldYouRatherContainer />}
             />
             <Route
-              path="/nfl/dan-marino-1985"
+              path="/nfl/dan-marino-1984"
               element={<DanMarinoContainer />}
             />
             <Route path="*" element={<HomePageContainer />} />
