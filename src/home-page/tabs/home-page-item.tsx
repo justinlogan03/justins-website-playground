@@ -1,4 +1,5 @@
 import React from "react";
+import { ComingSoonItem } from "./coming-soon-item";
 
 type Props = {
   title: string;
@@ -6,6 +7,7 @@ type Props = {
   imageVerticalPosition?: number;
   link?: string;
   description: string;
+  isComingSoon?: boolean;
 };
 
 export const HomePageItem = ({
@@ -14,6 +16,7 @@ export const HomePageItem = ({
   imageVerticalPosition = 0,
   description,
   link = "",
+  isComingSoon = false,
 }: Props) => {
   return (
     <div className="flex mb-4">
@@ -28,17 +31,20 @@ export const HomePageItem = ({
       ) : (
         <div className="w-48 mr-4 bg-gray-400 h-36 rounded-xl min-w-48"></div>
       )}
-
-      <div
-        className="w-full p-4 selectable-background rounded-xl cursor-pointer"
-        onClick={(e) => {
-          e.preventDefault();
-          window.location.href = link;
-        }}
-      >
-        <h3 className="font-bold teal-text">{title}</h3>
-        <p className="text-white ">{description}</p>
-      </div>
+      {isComingSoon ? (
+        <ComingSoonItem title={title} description={description} />
+      ) : (
+        <div
+          className="w-full p-4 selectable-background rounded-xl cursor-pointer"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = link;
+          }}
+        >
+          <h3 className="font-bold teal-text">{title}</h3>
+          <p className="text-white ">{description}</p>
+        </div>
+      )}
     </div>
   );
 };
