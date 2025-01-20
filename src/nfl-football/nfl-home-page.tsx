@@ -10,8 +10,12 @@ export const NFLHomePage = () => {
       <OpinionsSubHeader>
         <HomePageItem
           title=" Dan Marino - Why 1984 was the best sports season ever"
-          description="Why is Dan Marino in such high regard with such little playoff success? The answer is 1984. Many considered Dan Marino ahead of his time.
-          His success in 1984 will never be replicated"
+          description="Step into the ultimate sports debate: can greatness 
+          truly be defined by championship rings? This article dives deep into 
+          the career of Dan Marino, the legendary quarterback who shattered 
+          records in 1984 with a season so extraordinary it still defies 
+          comparison—proving that sometimes, a single moment of brilliance 
+          can outshine a lifetime of trophies."
           link="/#/nfl/dan-marino-1984"
           image={danMarinoImage}
           imageVerticalPosition={15}

@@ -10,7 +10,11 @@ export const JustForFunHomePage = () => {
       <GamesSubHeader>
         <HomePageItem
           title="Would You Rather?"
-          description="Mock description for would you rather"
+          description="Fun game where players face a series of amusing, 
+          thought-provoking, or challenging scenarios and must choose 
+          between two options, sparking lively debates and laughter. 
+          Perfect for groups or solo play, it’s a great way to learn 
+          about others' preferences and values while having a good time."
           link="/#/fun/wouldyourather"
           image={wouldYouRatherThumbnail}
           imageVerticalPosition={30}

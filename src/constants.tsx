@@ -1,13 +1,11 @@
 export enum CarouselSlide {
-  Celtics = 1,
-  Patriots = 2,
-  UVA = 3,
+  DanMarino = 1,
+  WouldYouRather = 2,
 }
 
 export const HOME_CAROUSEL_SLIDES = [
-  CarouselSlide.Celtics,
-  CarouselSlide.Patriots,
-  CarouselSlide.UVA,
+  CarouselSlide.DanMarino,
+  CarouselSlide.WouldYouRather,
 ];
 
 export enum TabOption {
