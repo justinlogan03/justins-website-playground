@@ -1,8 +1,7 @@
 import React from "react";
 import { CarouselSlide } from "../../constants";
-import celticsImage from "../images/celtics-championship-image.jpg";
+import wouldYouRatherImage from "../images/would-you-rather-image.jpg";
 import danMarinoImage from "../images/dan-marino.jpg";
-import uvaImage from "../images/uva-image.jpg";
 import { Slide } from "./slide";
 
 type Props = {
@@ -11,11 +10,23 @@ type Props = {
 
 export const CarouselSlides = ({ currentSlide }: Props) => {
   switch (currentSlide) {
-    case CarouselSlide.Celtics:
-      return <Slide image={celticsImage} verticalPosition={15} />;
-    case CarouselSlide.Patriots:
-      return <Slide image={danMarinoImage} verticalPosition={20} />;
-    case CarouselSlide.UVA:
-      return <Slide image={uvaImage} verticalPosition={50} />;
+    case CarouselSlide.DanMarino:
+      return (
+        <Slide
+          image={danMarinoImage}
+          verticalPosition={15}
+          link="/#/nfl/dan-marino-1984"
+          isNew={true}
+        />
+      );
+    case CarouselSlide.WouldYouRather:
+      return (
+        <Slide
+          image={wouldYouRatherImage}
+          verticalPosition={10}
+          link="/#/fun/wouldyourather"
+          isNew={true}
+        />
+      );
   }
 };
