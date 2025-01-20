@@ -10,24 +10,16 @@ import { TabHomePageSwitcher } from "./tab-home-page-switcher";
 import "/src/style.css";
 
 export const HomePageTabs = () => {
-  const [selectedTab, setSelectedTab] = useState<TabOption>(TabOption.Fun);
+  const [selectedTab, setSelectedTab] = useState<TabOption>(TabOption.NBA);
   return (
     <div className="relative">
       <div className="flex w-full h-12 ">
-        {/** For Fun tab - - - - - - */}
-        <TabButton
-          tabOption={TabOption.Fun}
-          selectedTab={selectedTab}
-          setSelectedTab={setSelectedTab}
-          isFirst={true}
-        >
-          <SurfingIcon />
-        </TabButton>
         {/** NBA tab - - - - - - */}
         <TabButton
           tabOption={TabOption.NBA}
           selectedTab={selectedTab}
           setSelectedTab={setSelectedTab}
+          isFirst={true}
         >
           <SportsBasketballIcon />
         </TabButton>
@@ -48,7 +40,14 @@ export const HomePageTabs = () => {
         >
           <SchoolIcon />
         </TabButton>
-
+        {/** For Fun tab - - - - - - */}
+        <TabButton
+          tabOption={TabOption.Fun}
+          selectedTab={selectedTab}
+          setSelectedTab={setSelectedTab}
+        >
+          <SurfingIcon />
+        </TabButton>
         {/** Used to make the top border curved. Border radius and margin are to account for h-12 of tabs*/}
         <div
           className="w-full h-12 border-t-2 border-r-0 content-border"
