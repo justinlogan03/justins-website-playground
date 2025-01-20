@@ -4,14 +4,18 @@
 **Current Project: (last updated 12/15/2024)**
 <br />
 **- Homepage:**
-![image](https://github.com/user-attachments/assets/ef64bd28-8ee0-4671-8635-4b26a439eb27)
-![image](https://github.com/user-attachments/assets/e1cce668-b8e5-48ff-9a41-2d0380d0ceba)
+![image](https://github.com/user-attachments/assets/26bf4ef3-f7ae-4daf-8cf3-fdeec398ca70)
+
 
 **- Would You Rather:**<br />
-![image](https://github.com/user-attachments/assets/57201252-37c8-4244-8d0d-34498ed061d8)
+![image](https://github.com/user-attachments/assets/4aa39e76-8a90-4689-8087-4f0b9ae8fe00)
+![image](https://github.com/user-attachments/assets/d6b290c7-a7ce-4c11-8989-75f4ded7c7a5)
+
 
 **- Darn Marino Article (unfinished, still needs styling and cleanup):**<br />
-![image](https://github.com/user-attachments/assets/cfd7d9e8-8d27-4e09-bbde-95ffd7db2ff0)
+![image](https://github.com/user-attachments/assets/dcc41fa0-de81-48c5-a596-0b1a0706141a)
+![image](https://github.com/user-attachments/assets/d27750a7-569b-4ad5-8d1d-6c4a9e2c7cc4)
+
 
 
 
