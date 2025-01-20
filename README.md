@@ -4,7 +4,8 @@
 **Current Project: (last updated 12/15/2024)**
 <br />
 **- Homepage:**
-![image](https://github.com/user-attachments/assets/26bf4ef3-f7ae-4daf-8cf3-fdeec398ca70)
+![image](https://github.com/user-attachments/assets/02b4fc0f-c712-4368-a9be-baef239c190c)
+
 
 
 **- Would You Rather:**<br />
