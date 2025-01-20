@@ -5,7 +5,7 @@ import { BracketsSubHeader } from "../home-page/tabs/home-page-sub-headers/brack
 import { HomePageItem } from "../home-page/tabs/home-page-item";
 import { OpinionsSubHeader } from "../home-page/tabs/home-page-sub-headers/opinions-sub-header";
 import sgaImage from "./images/sga-image.jpg";
-import nbaPlayoffsImage from "./images/nba-playoffs-image.jpg";
+import nbaPlayoffsImage from "./images/nba-bracket-image.jpg";
 
 export const NBAHomePage = () => {
   return (
@@ -16,6 +16,7 @@ export const NBAHomePage = () => {
           description="NBA Playoff Pool portal."
           isComingSoon={true}
           image={nbaPlayoffsImage}
+          imageVerticalPosition={20}
         />
       </BracketsSubHeader>
       <OpinionsSubHeader>
