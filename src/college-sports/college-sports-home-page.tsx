@@ -2,17 +2,17 @@ import React from "react";
 import { HomePageTemplate } from "../home-page/tabs/home-page-template";
 import { OpinionsSubHeader } from "../home-page/tabs/home-page-sub-headers/opinions-sub-header";
 import { HomePageItem } from "../home-page/tabs/home-page-item";
+import accImage from "./images/acc-sports-image.jpg";
 
 export const CollegeSportsHomePage = () => {
   return (
     <HomePageTemplate headerLabel="College Sports">
       <OpinionsSubHeader>
         <HomePageItem
-          title="Mock College Sports Opinion 1"
-          description=" Here is the preview text for Mock Opinion 1. I want it to multiple
-            lines so I will continue to type until it does so. This is mock text
-            and the real text will be stored somewhere else. For now this is
-            what I will do until I figure out the db solution."
+          title="ACC domination. Why the loss of the ACC is absolutely tragic."
+          description="The ACC is on the brink of being lost forever. Losing this conference and it's history is a tragic lesson in conference realignment."
+          image={accImage}
+          isComingSoon={true}
         />
       </OpinionsSubHeader>
     </HomePageTemplate>

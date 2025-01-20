@@ -23,9 +23,10 @@ export const HomePageItem = ({
       {image ? (
         <img
           src={image}
-          className="w-48 mr-4 bg-gray-400 h-36 rounded-xl min-w-48 object-cover"
+          className="w-48 mr-4 bg-gray-400  rounded-xl min-w-48  h-36 object-cover"
           style={{
             objectPosition: `0 ${imageVerticalPosition}%`,
+            overflowClipMargin: "unset",
           }}
         ></img>
       ) : (

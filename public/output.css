@@ -676,6 +676,10 @@ video {
   height: 24rem;
 }
 
+.max-h-36 {
+  max-height: 9rem;
+}
+
 .w-1\/2 {
   width: 50%;
 }
