@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { HomePageContainer } from "./home-page/home-page-container";
 import { WouldYouRatherContainer } from "./just-for-fun/would-you-rather/would-you-rather-container";
 import { DanMarinoContainer } from "./nfl-football/dan-marino/dan-marino-container";
@@ -25,6 +25,16 @@ const Layout = () => {
 };
 
 const App = () => {
+  const [backendData, setBackendData] = useState([{}]);
+  useEffect(() => {
+    console.log("useEffect ran");
+    fetch("/api/test-api")
+      .then((response) => response.json())
+      .then((data) => {
+        setBackendData(data);
+        console.log("test");
+      });
+  }, []);
   return (
     <div className="container mx-auto backdrop">
       {/** TODO - find solution to hash router and remove all # from links */}
