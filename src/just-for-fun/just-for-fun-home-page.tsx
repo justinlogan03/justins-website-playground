@@ -3,6 +3,7 @@ import { GamesSubHeader } from "../home-page/tabs/home-page-sub-headers/games-su
 import { HomePageTemplate } from "../home-page/tabs/home-page-template";
 import { HomePageItem } from "../home-page/tabs/home-page-item";
 import wouldYouRatherThumbnail from "./images/would-you-rather-image.jpg";
+import { BracketsSubHeader } from "../home-page/tabs/home-page-sub-headers/brackets-sub-header";
 
 export const JustForFunHomePage = () => {
   return (
@@ -20,6 +21,15 @@ export const JustForFunHomePage = () => {
           imageVerticalPosition={30}
         />
       </GamesSubHeader>
+      <BracketsSubHeader>
+        <HomePageItem
+          title="Hurst Family Sports Pool"
+          description="A year long sports pool across all major sports."
+          link="/#/fun/hurstfamilypool"
+          image={""}
+          imageVerticalPosition={20}
+        />
+      </BracketsSubHeader>
     </HomePageTemplate>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { HomePageContainer } from "./home-page/home-page-container";
 import { WouldYouRatherContainer } from "./just-for-fun/would-you-rather/would-you-rather-container";
 import { DanMarinoContainer } from "./nfl-football/dan-marino/dan-marino-container";
+import { HurstFamilyPoolContainer } from "./just-for-fun/hurst-family-pool/hurst-family-pool-container";
 import { Routes, Route, Outlet, Link, HashRouter } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 
@@ -39,6 +40,10 @@ const App = () => {
             <Route
               path="/nfl/dan-marino-1984"
               element={<DanMarinoContainer />}
+            />
+            <Route
+              path={"/fun/hurstfamilypool"}
+              element={<HurstFamilyPoolContainer />}
             />
             <Route path="*" element={<HomePageContainer />} />
           </Route>
