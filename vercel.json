@@ -1,0 +1,11 @@
+{
+  "builds": [
+    { "src": "dist/**/*", "use": "@vercel/static-build" },
+    { "src": "dist/api/**/*.ts", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/dist/api/$1.ts" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
