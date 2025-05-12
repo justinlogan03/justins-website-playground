@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server .",
-    "build": "webpack .",
+    "start": "vercel dev",
+    "build": "webpack && xcopy public\\output.css dist\\ /Y",
+    "postbuild": "xcopy /Y vercel.prod.json dist\\vercel.json && xcopy /E /I /Y api dist\\api",
     "tsc": "tsc"
   },
   "keywords": [],
@@ -19,6 +20,7 @@
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.24.6",
     "@types/react": "^18.3.3",
+    "@vercel/node": "^5.1.16",
     "babel-jest": "^29.7.0",
     "babel-loader": "^9.1.3",
     "html-webpack-plugin": "^5.5.3",
