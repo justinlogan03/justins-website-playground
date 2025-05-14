@@ -1,16 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { getCelticsWins } from "./client-apis/get-celtics-wins";
+import { getNbaTeamScore } from "./client-apis/get-nba-team-score";
+import { NBA_TEAM_INFO } from "./constants/nba-constants";
+import { NBATeamScoresResponse } from "./hurst-family-pool-types";
+import { TEAM_SELECTIONS } from "./constants/team-selection-constants";
+import classNames from "classnames";
+import { calculateNBAScore } from "./calculate-score-helpers";
+import { ScoreCell } from "./components/score-cell";
+import { HurstFamilyPoolWrapper } from "./hurst-family-pool-wrapper";
+import { HurstFamilyPoolContainerSkeleton } from "./hurst-family-pool-container-skeleton";
+import { FullTeamCell } from "./components/full-team-cell";
 
 export const HurstFamilyPoolContainer = () => {
-  const [celticsWins, setCelticsWins] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [teamScores, setTeamScores] = useState<NBATeamScoresResponse[]>([]);
+
+  const getAllTeamScores = async (): Promise<NBATeamScoresResponse[]> => {
+    const nbaTeamIds = TEAM_SELECTIONS?.map((selection) => {
+      return selection.selections.nbaId;
+    });
+    const updatedTeamResponse = await getNbaTeamScore({
+      nbaTeamIds,
+      season: 2024,
+    });
+    return updatedTeamResponse;
+  };
 
   useEffect(() => {
-    getCelticsWins()
+    setIsLoading(true);
+    getAllTeamScores()
       .then((res) => {
-        setCelticsWins(res);
+        setTeamScores(res);
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
@@ -21,7 +46,91 @@ export const HurstFamilyPoolContainer = () => {
           <h1 className="w-1/2 p-2 mb-4 text-3xl font-bold border-b-2 content-border teal-text">
             Hurst Family Pool
           </h1>
-          <div className="teal-text">{celticsWins}</div>
+          {isLoading ? (
+            <HurstFamilyPoolContainerSkeleton />
+          ) : (
+            <HurstFamilyPoolWrapper>
+              <>
+                {teamScores?.map((item, index) => {
+                  const teamInfo = TEAM_SELECTIONS.find((team) => {
+                    return team.selections.nbaId === item.nbaTeamId;
+                  });
+                  const nbaTeamInfo = NBA_TEAM_INFO.find((team) => {
+                    return team.id === teamInfo?.selections.nbaId;
+                  });
+
+                  const isLastItem = !teamScores?.[index + 1];
+
+                  const key = `${teamInfo?.teamName}-${index}`;
+                  return (
+                    <tr
+                      className={classNames(
+                        "rounded-md",
+                        { "bg-gray-100": index % 2 === 0 },
+                        { "bg-gray-200": index % 2 !== 0 },
+                        { "rounded-b-md ": isLastItem }
+                      )}
+                      key={key}
+                    >
+                      <td
+                        className={classNames(
+                          "text-center font-bold border-r border-gray-300",
+                          {
+                            "rounded-bl-md": isLastItem,
+                          }
+                        )}
+                      >
+                        {teamInfo?.teamName}
+                      </td>
+                      <FullTeamCell
+                        score={calculateNBAScore(item.wins)}
+                        wins={item.wins}
+                        tooltipKey={`${key}-nba`}
+                        logo={nbaTeamInfo?.logo}
+                      />
+                      <FullTeamCell
+                        score={undefined}
+                        wins={undefined}
+                        tooltipKey={`${key}-nfl`}
+                        logo={undefined}
+                      />
+                      <FullTeamCell
+                        score={undefined}
+                        wins={undefined}
+                        tooltipKey={`${key}-mbl`}
+                        logo={undefined}
+                      />
+                      <FullTeamCell
+                        score={undefined}
+                        wins={undefined}
+                        tooltipKey={`${key}-nhl`}
+                        logo={undefined}
+                      />
+                      <FullTeamCell
+                        score={undefined}
+                        wins={undefined}
+                        tooltipKey={`${key}-cfb`}
+                        logo={undefined}
+                      />
+                      <FullTeamCell
+                        score={undefined}
+                        wins={undefined}
+                        tooltipKey={`${key}-cbb`}
+                        logo={undefined}
+                      />
+                      <td
+                        className={classNames("text-center font-bold", {
+                          "rounded-br-md": isLastItem,
+                        })}
+                      >
+                        {calculateNBAScore(item.wins)}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </>
+            </HurstFamilyPoolWrapper>
+          )}
         </div>
       </div>
     </div>
