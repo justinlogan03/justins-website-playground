@@ -1,5 +1,3 @@
-const MAX_NBA_GAMES = 82 + 28;
-
 export default async function handler(req: any, res: any) {
   const { nbaTeamIds, season } = req?.body as {
     nbaTeamIds: number[];
