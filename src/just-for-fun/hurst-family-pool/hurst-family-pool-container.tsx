@@ -5,9 +5,10 @@ import { NBATeamScoresResponse } from "./hurst-family-pool-types";
 import { TEAM_SELECTIONS } from "./constants/team-selection-constants";
 import classNames from "classnames";
 import { calculateNBAScore } from "./calculate-score-helpers";
-import { Tooltip } from "react-tooltip";
-import "react-tooltip/dist/react-tooltip.css";
 import { ScoreCell } from "./components/score-cell";
+import { HurstFamilyPoolWrapper } from "./hurst-family-pool-wrapper";
+import { HurstFamilyPoolContainerSkeleton } from "./hurst-family-pool-container-skeleton";
+import { FullTeamCell } from "./components/full-team-cell";
 
 export const HurstFamilyPoolContainer = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -46,15 +47,10 @@ export const HurstFamilyPoolContainer = () => {
             Hurst Family Pool
           </h1>
           {isLoading ? (
-            <div className="teal-text">{"Loading"}</div>
+            <HurstFamilyPoolContainerSkeleton />
           ) : (
-            <table className=" w-full rounded-md">
-              <tbody className="rounded-md">
-                <tr className=" teal-background text-white rounded-t-md">
-                  <th className="rounded-tl-md">Team Name</th>
-                  <th className="">{"NBA Score"}</th>
-                  <th className="rounded-tr-md">Total Points</th>
-                </tr>
+            <HurstFamilyPoolWrapper>
+              <>
                 {teamScores?.map((item, index) => {
                   const teamInfo = TEAM_SELECTIONS.find((team) => {
                     return team.selections.nbaId === item.nbaTeamId;
@@ -77,23 +73,51 @@ export const HurstFamilyPoolContainer = () => {
                       key={key}
                     >
                       <td
-                        className={classNames("text-center font-bold", {
-                          "rounded-bl-md": isLastItem,
-                        })}
+                        className={classNames(
+                          "text-center font-bold border-r border-gray-300",
+                          {
+                            "rounded-bl-md": isLastItem,
+                          }
+                        )}
                       >
                         {teamInfo?.teamName}
                       </td>
-                      <td className="text-center grid grid-rows-1 grid-cols-2">
-                        <img
-                          className="h-12 w-12 mx-auto my-auto "
-                          src={nbaTeamInfo?.logo}
-                        />
-                        <ScoreCell
-                          score={calculateNBAScore(item.wins)}
-                          wins={item.wins}
-                          tooltipKey={key}
-                        />
-                      </td>
+                      <FullTeamCell
+                        score={calculateNBAScore(item.wins)}
+                        wins={item.wins}
+                        tooltipKey={`${key}-nba`}
+                        logo={nbaTeamInfo?.logo}
+                      />
+                      <FullTeamCell
+                        score={undefined}
+                        wins={undefined}
+                        tooltipKey={`${key}-nfl`}
+                        logo={undefined}
+                      />
+                      <FullTeamCell
+                        score={undefined}
+                        wins={undefined}
+                        tooltipKey={`${key}-mbl`}
+                        logo={undefined}
+                      />
+                      <FullTeamCell
+                        score={undefined}
+                        wins={undefined}
+                        tooltipKey={`${key}-nhl`}
+                        logo={undefined}
+                      />
+                      <FullTeamCell
+                        score={undefined}
+                        wins={undefined}
+                        tooltipKey={`${key}-cfb`}
+                        logo={undefined}
+                      />
+                      <FullTeamCell
+                        score={undefined}
+                        wins={undefined}
+                        tooltipKey={`${key}-cbb`}
+                        logo={undefined}
+                      />
                       <td
                         className={classNames("text-center font-bold", {
                           "rounded-br-md": isLastItem,
@@ -104,8 +128,8 @@ export const HurstFamilyPoolContainer = () => {
                     </tr>
                   );
                 })}
-              </tbody>
-            </table>
+              </>
+            </HurstFamilyPoolWrapper>
           )}
         </div>
       </div>
