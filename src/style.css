@@ -45,6 +45,10 @@
   color: #75cec1;
 }
 
+.teal-background {
+  background-color: #248479;
+}
+
 .teal-shadow {
   box-shadow: 0px 8px 20px #75cec1;
 }

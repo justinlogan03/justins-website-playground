@@ -3,6 +3,8 @@ import { getNbaTeamScore } from "./client-apis/get-nba-team-score";
 import { NBA_TEAM_INFO } from "./constants/nba-constants";
 import { NBATeamScoresResponse } from "./hurst-family-pool-types";
 import { TEAM_SELECTIONS } from "./constants/team-selection-constants";
+import classNames from "classnames";
+import { calculateNBAScore } from "./calculate-score-helpers";
 
 export const HurstFamilyPoolContainer = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -43,12 +45,12 @@ export const HurstFamilyPoolContainer = () => {
           {isLoading ? (
             <div className="teal-text">{"Loading"}</div>
           ) : (
-            <table className="teal-text w-full">
-              <tbody>
-                <tr>
-                  <th>Team Name</th>
-                  <th>NBA Team</th>
-                  <th>NBA Score</th>
+            <table className=" w-full rounded-md">
+              <tbody className="rounded-md">
+                <tr className=" teal-background text-white rounded-t-md">
+                  <th className="rounded-tl-md">Team Name</th>
+                  <th className="">{"NBA Score"}</th>
+                  <th className="rounded-tr-md">Total Points</th>
                 </tr>
                 {teamScores?.map((item, index) => {
                   const teamInfo = TEAM_SELECTIONS.find((team) => {
@@ -57,18 +59,40 @@ export const HurstFamilyPoolContainer = () => {
                   const nbaTeamInfo = NBA_TEAM_INFO.find((team) => {
                     return team.id === teamInfo?.selections.nbaId;
                   });
+
+                  const isLastItem = !teamScores?.[index + 1];
                   return (
-                    <tr key={`${teamInfo?.teamName}-${index}`}>
-                      <td className="text-center">{teamInfo?.teamName}</td>
-                      <td className="text-center">
-                        <img
-                          className="h-12 w-12 mx-auto"
-                          src={nbaTeamInfo?.logo}
-                          style={{}}
-                        />
+                    <tr
+                      className={classNames(
+                        "rounded-md",
+                        { "bg-gray-100": index % 2 === 0 },
+                        { "bg-gray-200": index % 2 !== 0 },
+                        { "rounded-b-md ": isLastItem }
+                      )}
+                      key={`${teamInfo?.teamName}-${index}`}
+                    >
+                      <td
+                        className={classNames("text-center font-bold", {
+                          "rounded-bl-md": isLastItem,
+                        })}
+                      >
+                        {teamInfo?.teamName}
                       </td>
-                      <td className="text-center">
-                        {item.wins.regularSeasonWins}
+                      <td className="text-center grid grid-rows-1 grid-cols-2">
+                        <img
+                          className="h-12 w-12 mx-auto my-auto "
+                          src={nbaTeamInfo?.logo}
+                        />
+                        <div className="text-center my-auto">
+                          {calculateNBAScore(item.wins)}
+                        </div>
+                      </td>
+                      <td
+                        className={classNames("text-center font-bold", {
+                          "rounded-br-md": isLastItem,
+                        })}
+                      >
+                        {calculateNBAScore(item.wins)}
                       </td>
                     </tr>
                   );

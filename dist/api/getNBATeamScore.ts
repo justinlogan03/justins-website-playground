@@ -78,7 +78,6 @@ export default async function handler(req: any, res: any) {
         nbaTeamId,
         wins: {
           regularSeasonWins,
-          rivalryWins: 0,
           postSeasonWins,
         },
       };
