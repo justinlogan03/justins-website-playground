@@ -1,3 +1,4 @@
+import { MLBTeamId } from "./constants/mlb-constants";
 import { NBATeamId } from "./constants/nba-constants";
 
 export enum TeamType {
@@ -17,11 +18,17 @@ export type NBATeamInfo = {
   logo: string;
 };
 
+export type MLBTeamInfo = {
+  id: MLBTeamId;
+  logo: string;
+};
+
 export type TeamSelection = {
   teamName: string;
   teamId: number;
   selections: {
     nbaId: NBATeamId;
+    mlbId: MLBTeamId;
   };
 };
 
@@ -37,7 +44,17 @@ export type NBATeamScoresResponse = {
   wins: WinsObject;
 };
 
+export type MLBTeamScoresResponse = {
+  mlbTeamId: MLBTeamId;
+  wins: WinsObject;
+};
+
 export type WinsObject = {
   regularSeasonWins: number;
   postSeasonWins: number;
+};
+
+export type FullTeamScoresResponse = {
+  nba: NBATeamScoresResponse[];
+  mlb: MLBTeamScoresResponse[];
 };

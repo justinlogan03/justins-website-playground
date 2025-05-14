@@ -1,28 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { getNbaTeamScore } from "./client-apis/get-nba-team-score";
 import { NBA_TEAM_INFO } from "./constants/nba-constants";
-import { NBATeamScoresResponse } from "./hurst-family-pool-types";
+import { FullTeamScoresResponse } from "./hurst-family-pool-types";
 import { TEAM_SELECTIONS } from "./constants/team-selection-constants";
 import classNames from "classnames";
-import { calculateNBAScore } from "./calculate-score-helpers";
-import { ScoreCell } from "./components/score-cell";
+import {
+  calculateMLBScore,
+  calculateNBAScore,
+} from "./calculate-score-helpers";
 import { HurstFamilyPoolWrapper } from "./hurst-family-pool-wrapper";
 import { HurstFamilyPoolContainerSkeleton } from "./hurst-family-pool-container-skeleton";
 import { FullTeamCell } from "./components/full-team-cell";
+import { getMlbTeamScore } from "./client-apis/get-mlb-team-score";
+import { MLB_TEAM_INFO } from "./constants/mlb-constants";
 
 export const HurstFamilyPoolContainer = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [teamScores, setTeamScores] = useState<NBATeamScoresResponse[]>([]);
+  const [teamScores, setTeamScores] = useState<
+    FullTeamScoresResponse | undefined
+  >(undefined);
 
-  const getAllTeamScores = async (): Promise<NBATeamScoresResponse[]> => {
+  const getAllTeamScores = async (): Promise<FullTeamScoresResponse> => {
     const nbaTeamIds = TEAM_SELECTIONS?.map((selection) => {
       return selection.selections.nbaId;
     });
-    const updatedTeamResponse = await getNbaTeamScore({
+    const mlbTeamIds = TEAM_SELECTIONS?.map((selection) => {
+      return selection.selections.mlbId;
+    });
+    const nbaResponse = await getNbaTeamScore({
       nbaTeamIds,
       season: 2024,
     });
-    return updatedTeamResponse;
+    const mlbResponse = await getMlbTeamScore({ mlbTeamIds, season: 2024 });
+
+    return { nba: nbaResponse, mlb: mlbResponse };
   };
 
   useEffect(() => {
@@ -51,17 +62,23 @@ export const HurstFamilyPoolContainer = () => {
           ) : (
             <HurstFamilyPoolWrapper>
               <>
-                {teamScores?.map((item, index) => {
-                  const teamInfo = TEAM_SELECTIONS.find((team) => {
-                    return team.selections.nbaId === item.nbaTeamId;
+                {TEAM_SELECTIONS?.map((item, index) => {
+                  const mlbTeamInfo = MLB_TEAM_INFO.find((team) => {
+                    return team.id === item.selections.mlbId;
+                  });
+                  const mlbTeamScores = teamScores?.mlb.find((mlbTeam) => {
+                    return mlbTeam.mlbTeamId === item.selections.mlbId;
                   });
                   const nbaTeamInfo = NBA_TEAM_INFO.find((team) => {
-                    return team.id === teamInfo?.selections.nbaId;
+                    return team.id === item.selections.nbaId;
+                  });
+                  const nbaTeamScores = teamScores?.nba.find((nbaTeam) => {
+                    return nbaTeam.nbaTeamId === item.selections.nbaId;
                   });
 
-                  const isLastItem = !teamScores?.[index + 1];
+                  const isLastItem = !TEAM_SELECTIONS?.[index + 1];
 
-                  const key = `${teamInfo?.teamName}-${index}`;
+                  const key = `${item?.teamName}-${index}`;
                   return (
                     <tr
                       className={classNames(
@@ -80,11 +97,11 @@ export const HurstFamilyPoolContainer = () => {
                           }
                         )}
                       >
-                        {teamInfo?.teamName}
+                        {item?.teamName}
                       </td>
                       <FullTeamCell
-                        score={calculateNBAScore(item.wins)}
-                        wins={item.wins}
+                        score={calculateNBAScore({ wins: nbaTeamScores?.wins })}
+                        wins={nbaTeamScores?.wins}
                         tooltipKey={`${key}-nba`}
                         logo={nbaTeamInfo?.logo}
                       />
@@ -95,10 +112,10 @@ export const HurstFamilyPoolContainer = () => {
                         logo={undefined}
                       />
                       <FullTeamCell
-                        score={undefined}
-                        wins={undefined}
-                        tooltipKey={`${key}-mbl`}
-                        logo={undefined}
+                        score={calculateMLBScore({ wins: mlbTeamScores?.wins })}
+                        wins={mlbTeamScores?.wins}
+                        tooltipKey={`${key}-mlb`}
+                        logo={mlbTeamInfo?.logo}
                       />
                       <FullTeamCell
                         score={undefined}
@@ -123,7 +140,10 @@ export const HurstFamilyPoolContainer = () => {
                           "rounded-br-md": isLastItem,
                         })}
                       >
-                        {calculateNBAScore(item.wins)}
+                        {(calculateNBAScore({ wins: nbaTeamScores?.wins }) ??
+                          0) +
+                          (calculateMLBScore({ wins: mlbTeamScores?.wins }) ??
+                            0)}
                       </td>
                     </tr>
                   );
