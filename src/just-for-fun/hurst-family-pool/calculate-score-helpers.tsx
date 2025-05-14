@@ -1,10 +1,9 @@
+import { WinsObject } from "./hurst-family-pool-types";
+
 export const calculateNBAScore = ({
   regularSeasonWins,
   postSeasonWins,
-}: {
-  regularSeasonWins: number;
-  postSeasonWins: number;
-}) => {
+}: WinsObject) => {
   const standardizedRegularSeasonWins = regularSeasonWins * 0.5;
 
   const standardizedPostSeasonWins = postSeasonWins * 0.5;

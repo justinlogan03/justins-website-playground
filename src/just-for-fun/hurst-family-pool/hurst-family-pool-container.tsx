@@ -5,6 +5,9 @@ import { NBATeamScoresResponse } from "./hurst-family-pool-types";
 import { TEAM_SELECTIONS } from "./constants/team-selection-constants";
 import classNames from "classnames";
 import { calculateNBAScore } from "./calculate-score-helpers";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
+import { ScoreCell } from "./components/score-cell";
 
 export const HurstFamilyPoolContainer = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -61,6 +64,8 @@ export const HurstFamilyPoolContainer = () => {
                   });
 
                   const isLastItem = !teamScores?.[index + 1];
+
+                  const key = `${teamInfo?.teamName}-${index}`;
                   return (
                     <tr
                       className={classNames(
@@ -69,7 +74,7 @@ export const HurstFamilyPoolContainer = () => {
                         { "bg-gray-200": index % 2 !== 0 },
                         { "rounded-b-md ": isLastItem }
                       )}
-                      key={`${teamInfo?.teamName}-${index}`}
+                      key={key}
                     >
                       <td
                         className={classNames("text-center font-bold", {
@@ -83,9 +88,11 @@ export const HurstFamilyPoolContainer = () => {
                           className="h-12 w-12 mx-auto my-auto "
                           src={nbaTeamInfo?.logo}
                         />
-                        <div className="text-center my-auto">
-                          {calculateNBAScore(item.wins)}
-                        </div>
+                        <ScoreCell
+                          score={calculateNBAScore(item.wins)}
+                          wins={item.wins}
+                          tooltipKey={key}
+                        />
                       </td>
                       <td
                         className={classNames("text-center font-bold", {

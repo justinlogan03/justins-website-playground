@@ -34,8 +34,10 @@ export type TeamScores = {
 
 export type NBATeamScoresResponse = {
   nbaTeamId: NBATeamId;
-  wins: {
-    regularSeasonWins: number;
-    postSeasonWins: number;
-  };
+  wins: WinsObject;
+};
+
+export type WinsObject = {
+  regularSeasonWins: number;
+  postSeasonWins: number;
 };
