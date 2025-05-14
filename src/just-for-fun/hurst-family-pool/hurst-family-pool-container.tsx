@@ -1,16 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { getCelticsWins } from "./client-apis/get-celtics-wins";
+import { getNbaTeamScore } from "./client-apis/get-nba-team-score";
+import { NBA_TEAM_INFO } from "./constants/nba-constants";
+import { NBATeamScoresResponse } from "./hurst-family-pool-types";
+import { TEAM_SELECTIONS } from "./constants/team-selection-constants";
 
 export const HurstFamilyPoolContainer = () => {
-  const [celticsWins, setCelticsWins] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [teamScores, setTeamScores] = useState<NBATeamScoresResponse[]>([]);
+
+  const getAllTeamScores = async (): Promise<NBATeamScoresResponse[]> => {
+    const nbaTeamIds = TEAM_SELECTIONS?.map((selection) => {
+      return selection.selections.nbaId;
+    });
+    const updatedTeamResponse = await getNbaTeamScore({
+      nbaTeamIds,
+      season: 2024,
+    });
+    return updatedTeamResponse;
+  };
 
   useEffect(() => {
-    getCelticsWins()
+    setIsLoading(true);
+    getAllTeamScores()
       .then((res) => {
-        setCelticsWins(res);
+        setTeamScores(res);
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
@@ -21,7 +40,42 @@ export const HurstFamilyPoolContainer = () => {
           <h1 className="w-1/2 p-2 mb-4 text-3xl font-bold border-b-2 content-border teal-text">
             Hurst Family Pool
           </h1>
-          <div className="teal-text">{celticsWins}</div>
+          {isLoading ? (
+            <div className="teal-text">{"Loading"}</div>
+          ) : (
+            <table className="teal-text w-full">
+              <tbody>
+                <tr>
+                  <th>Team Name</th>
+                  <th>NBA Team</th>
+                  <th>NBA Score</th>
+                </tr>
+                {teamScores?.map((item, index) => {
+                  const teamInfo = TEAM_SELECTIONS.find((team) => {
+                    return team.selections.nbaId === item.nbaTeamId;
+                  });
+                  const nbaTeamInfo = NBA_TEAM_INFO.find((team) => {
+                    return team.id === teamInfo?.selections.nbaId;
+                  });
+                  return (
+                    <tr key={`${teamInfo?.teamName}-${index}`}>
+                      <td className="text-center">{teamInfo?.teamName}</td>
+                      <td className="text-center">
+                        <img
+                          className="h-12 w-12 mx-auto"
+                          src={nbaTeamInfo?.logo}
+                          style={{}}
+                        />
+                      </td>
+                      <td className="text-center">
+                        {item.wins.regularSeasonWins}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          )}
         </div>
       </div>
     </div>
