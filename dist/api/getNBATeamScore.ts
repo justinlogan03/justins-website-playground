@@ -1,89 +1,47 @@
+// api/getNBATeamScores.ts
 export default async function handler(req: any, res: any) {
-  const { nbaTeamIds, season } = req?.body as {
-    nbaTeamIds: number[];
-    season: number;
-  };
+  const { nbaTeamIds } = req.body as { nbaTeamIds: number[] };
+  const nbaTeamScoresResponse = [];
 
-  const buildParams = (postseason: boolean) => {
-    const params = new URLSearchParams();
-    nbaTeamIds.forEach((id) => params.append("team_ids[]", `${id}`));
-    params.append("seasons[]", `${season}`);
-    params.append("postseason", postseason.toString());
-    params.append("per_page", `100`);
-    return params;
-  };
+  for (const nbaTeamId of nbaTeamIds) {
+    let regularSeasonWins = 0;
+    let postSeasonWins = 0;
 
-  const fetchAllGames = async (postseason: boolean): Promise<any[]> => {
-    const baseParams = buildParams(postseason);
-    let allGames: any[] = [];
-    let cursor: string | null = null;
+    // Fetch schedule for postseason games
+    const scheduleResponse = await fetch(
+      `https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/${nbaTeamId}/schedule`
+    );
+    const scheduleData = await scheduleResponse.json();
 
-    do {
-      const pageParams = new URLSearchParams(baseParams); // Clone base params
-      if (cursor) pageParams.append("cursor", cursor);
+    // get regular season wins
+    const regRecord = scheduleData?.team?.recordSummary as string;
+    regularSeasonWins = +regRecord?.split("-")?.[0];
 
-      const url = `https://api.balldontlie.io/v1/games?${pageParams.toString()}`;
+    const events = scheduleData.events || [];
 
-      const response = await fetch(url, {
-        headers: {
-          Authorization: "Bearer " + process.env.BALL_DONT_LIE_API_KEY,
-        },
-      });
+    // Count postseason wins from completed games
+    for (const event of events) {
+      const competitions = event.competitions;
+      if (!competitions || competitions.length === 0) continue;
 
-      const data = await response.json();
-      allGames.push(...data.data);
-      cursor = data.meta.next_cursor;
-    } while (cursor);
+      const competition = competitions[0];
 
-    return allGames;
-  };
+      const competitors = competition.competitors;
+      const team = competitors.find(
+        (c: any) => c.team?.id === nbaTeamId.toString()
+      );
 
-  try {
-    const [regularGames, postseasonGames] = await Promise.all([
-      fetchAllGames(false),
-      fetchAllGames(true),
-    ]);
+      if (team?.winner) postSeasonWins += 1;
+    }
 
-    const nbaTeamScoresResponse = nbaTeamIds.map((nbaTeamId) => {
-      let regularSeasonWins = 0;
-      let postSeasonWins = 0;
-
-      const countWins = (games: any[], isPostseason = false) => {
-        for (const game of games) {
-          const isHome = game.home_team.id === nbaTeamId;
-          const isAway = game.visitor_team.id === nbaTeamId;
-
-          if (!isHome && !isAway) continue;
-
-          const isWin = isHome
-            ? game.home_team_score > game.visitor_team_score
-            : game.visitor_team_score > game.home_team_score;
-
-          if (isWin) {
-            if (isPostseason) {
-              postSeasonWins++;
-            } else {
-              regularSeasonWins++;
-            }
-          }
-        }
-      };
-
-      countWins(regularGames, false);
-      countWins(postseasonGames, true);
-
-      return {
-        nbaTeamId,
-        wins: {
-          regularSeasonWins,
-          postSeasonWins,
-        },
-      };
+    nbaTeamScoresResponse.push({
+      nbaTeamId,
+      wins: {
+        regularSeasonWins,
+        postSeasonWins,
+      },
     });
-
-    res.status(200).json({ nbaTeamScoresResponse });
-  } catch (error) {
-    console.error("Error fetching NBA team wins:", error);
-    res.status(500).json({ error: "Failed to fetch NBA team wins" });
   }
+
+  res.status(200).json({ nbaTeamScoresResponse });
 }

@@ -63,16 +63,16 @@ export const HurstFamilyPoolContainer = () => {
             <HurstFamilyPoolWrapper>
               <>
                 {TEAM_SELECTIONS?.map((item, index) => {
-                  const mlbTeamInfo = MLB_TEAM_INFO.find((team) => {
+                  const mlbTeamInfo = MLB_TEAM_INFO?.find((team) => {
                     return team.id === item.selections.mlbId;
                   });
-                  const mlbTeamScores = teamScores?.mlb.find((mlbTeam) => {
+                  const mlbTeamScores = teamScores?.mlb?.find((mlbTeam) => {
                     return mlbTeam.mlbTeamId === item.selections.mlbId;
                   });
-                  const nbaTeamInfo = NBA_TEAM_INFO.find((team) => {
+                  const nbaTeamInfo = NBA_TEAM_INFO?.find((team) => {
                     return team.id === item.selections.nbaId;
                   });
-                  const nbaTeamScores = teamScores?.nba.find((nbaTeam) => {
+                  const nbaTeamScores = teamScores?.nba?.find((nbaTeam) => {
                     return nbaTeam.nbaTeamId === item.selections.nbaId;
                   });
 
