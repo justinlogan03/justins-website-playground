@@ -7,17 +7,17 @@ export const TEAM_SELECTIONS: TeamSelection[] = [
   {
     teamName: "Justin",
     teamId: 1,
-    selections: { nbaId: NBATeamId.BOS, mlbId: MLBTeamId.ARI },
+    selections: { nbaId: NBATeamId.BOS, mlbId: MLBTeamId.WSH },
   },
   {
     teamName: "Michael",
     teamId: 2,
-    selections: { nbaId: NBATeamId.CLE, mlbId: MLBTeamId.ATL },
+    selections: { nbaId: NBATeamId.CLE, mlbId: MLBTeamId.PIT },
   },
   {
     teamName: "Evan",
     teamId: 3,
-    selections: { nbaId: NBATeamId.UTA, mlbId: MLBTeamId.BOS },
+    selections: { nbaId: NBATeamId.UTA, mlbId: MLBTeamId.MIA },
   },
   // { teamName: "Nicolas", teamId: 4, selections: { nbaId: NBATeamId.SAS } },
   // { teamName: "Mom", teamId: 5, selections: { nbaId: NBATeamId.OKC } },
