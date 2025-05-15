@@ -59,4 +59,104 @@ export const MLB_TEAM_INFO: MLBTeamInfo[] = [
     id: MLBTeamId.CHC,
     logo: getMLBLogo(MLBTeamId.CHC),
   },
+  {
+    id: MLBTeamId.CWS,
+    logo: getMLBLogo(MLBTeamId.CWS),
+  },
+  {
+    id: MLBTeamId.CIN,
+    logo: getMLBLogo(MLBTeamId.CIN),
+  },
+  {
+    id: MLBTeamId.CLE,
+    logo: getMLBLogo(MLBTeamId.CLE),
+  },
+  {
+    id: MLBTeamId.COL,
+    logo: getMLBLogo(MLBTeamId.COL),
+  },
+  {
+    id: MLBTeamId.DET,
+    logo: getMLBLogo(MLBTeamId.DET),
+  },
+  {
+    id: MLBTeamId.HOU,
+    logo: getMLBLogo(MLBTeamId.HOU),
+  },
+  {
+    id: MLBTeamId.KC,
+    logo: getMLBLogo(MLBTeamId.KC),
+  },
+  {
+    id: MLBTeamId.LAA,
+    logo: getMLBLogo(MLBTeamId.LAA),
+  },
+  {
+    id: MLBTeamId.LAD,
+    logo: getMLBLogo(MLBTeamId.LAD),
+  },
+  {
+    id: MLBTeamId.MIA,
+    logo: getMLBLogo(MLBTeamId.MIA),
+  },
+  {
+    id: MLBTeamId.MIL,
+    logo: getMLBLogo(MLBTeamId.MIL),
+  },
+  {
+    id: MLBTeamId.MIN,
+    logo: getMLBLogo(MLBTeamId.MIN),
+  },
+  {
+    id: MLBTeamId.NYM,
+    logo: getMLBLogo(MLBTeamId.NYM),
+  },
+  {
+    id: MLBTeamId.NYY,
+    logo: getMLBLogo(MLBTeamId.NYY),
+  },
+  {
+    id: MLBTeamId.OAK,
+    logo: getMLBLogo(MLBTeamId.OAK),
+  },
+  {
+    id: MLBTeamId.PHI,
+    logo: getMLBLogo(MLBTeamId.PHI),
+  },
+  {
+    id: MLBTeamId.PIT,
+    logo: getMLBLogo(MLBTeamId.PIT),
+  },
+  {
+    id: MLBTeamId.SD,
+    logo: getMLBLogo(MLBTeamId.SD),
+  },
+  {
+    id: MLBTeamId.SEA,
+    logo: getMLBLogo(MLBTeamId.SEA),
+  },
+  {
+    id: MLBTeamId.SF,
+    logo: getMLBLogo(MLBTeamId.SF),
+  },
+  {
+    id: MLBTeamId.STL,
+    logo: getMLBLogo(MLBTeamId.STL),
+  },
+  {
+    id: MLBTeamId.TB,
+    logo: getMLBLogo(MLBTeamId.TB),
+  },
+  {
+    id: MLBTeamId.TEX,
+    logo: getMLBLogo(MLBTeamId.TEX),
+  },
+  {
+    id: MLBTeamId.TOR,
+    logo: getMLBLogo(MLBTeamId.TOR),
+  },
+  {
+    id: MLBTeamId.WSH,
+    logo: getMLBLogo(MLBTeamId.WSH),
+  },
 ];
