@@ -1,6 +1,39 @@
 import { MLBTeamInfo } from "../hurst-family-pool-types";
 
 export enum MLBTeamId {
+  ARI = 29, // Arizona Diamondbacks
+  ATL = 15, // Atlanta Braves
+  BAL = 1, // Baltimore Orioles
+  BOS = 2, // Boston Red Sox
+  CHC = 16, // Chicago Cubs
+  CWS = 4, // Chicago White Sox
+  CIN = 17, // Cincinnati Reds
+  CLE = 5, // Cleveland Guardians
+  COL = 27, // Colorado Rockies
+  DET = 6, // Detroit Tigers
+  HOU = 18, // Houston Astros
+  KC = 7, // Kansas City Royals
+  LAA = 3, // Los Angeles Angels
+  LAD = 19, // Los Angeles Dodgers
+  MIA = 28, // Miami Marlins
+  MIL = 8, // Milwaukee Brewers
+  MIN = 9, // Minnesota Twins
+  NYM = 21, // New York Mets
+  NYY = 10, // New York Yankees
+  OAK = 11, // Oakland Athletics
+  PHI = 22, // Philadelphia Phillies
+  PIT = 23, // Pittsburgh Pirates
+  SD = 25, // San Diego Padres
+  SEA = 12, // Seattle Mariners
+  SF = 26, // San Francisco Giants
+  STL = 24, // St. Louis Cardinals
+  TB = 30, // Tampa Bay Rays
+  TEX = 13, // Texas Rangers
+  TOR = 14, // Toronto Blue Jays
+  WSH = 20, // Washington Nationals
+}
+
+export enum MLBTeamAbbreviation {
   ARI = "ARI", // Arizona Diamondbacks
   ATL = "ATL", // Atlanta Braves
   BAL = "BAL", // Baltimore Orioles
@@ -33,7 +66,7 @@ export enum MLBTeamId {
   WSH = "WSH", // Washington Nationals
 }
 
-const getMLBLogo = (id: MLBTeamId) => {
+const getMLBLogo = (id: MLBTeamAbbreviation) => {
   const lowerCaseId = id.toLocaleLowerCase();
   return `https://a.espncdn.com/i/teamlogos/mlb/500/${lowerCaseId}.png`;
 };
@@ -41,122 +74,122 @@ const getMLBLogo = (id: MLBTeamId) => {
 export const MLB_TEAM_INFO: MLBTeamInfo[] = [
   {
     id: MLBTeamId.ARI,
-    logo: getMLBLogo(MLBTeamId.ARI),
+    logo: getMLBLogo(MLBTeamAbbreviation.ARI),
   },
   {
     id: MLBTeamId.ATL,
-    logo: getMLBLogo(MLBTeamId.ATL),
+    logo: getMLBLogo(MLBTeamAbbreviation.ATL),
   },
   {
     id: MLBTeamId.BAL,
-    logo: getMLBLogo(MLBTeamId.BAL),
+    logo: getMLBLogo(MLBTeamAbbreviation.BAL),
   },
   {
     id: MLBTeamId.BOS,
-    logo: getMLBLogo(MLBTeamId.BOS),
+    logo: getMLBLogo(MLBTeamAbbreviation.BOS),
   },
   {
     id: MLBTeamId.CHC,
-    logo: getMLBLogo(MLBTeamId.CHC),
+    logo: getMLBLogo(MLBTeamAbbreviation.CHC),
   },
   {
     id: MLBTeamId.CWS,
-    logo: getMLBLogo(MLBTeamId.CWS),
+    logo: getMLBLogo(MLBTeamAbbreviation.CWS),
   },
   {
     id: MLBTeamId.CIN,
-    logo: getMLBLogo(MLBTeamId.CIN),
+    logo: getMLBLogo(MLBTeamAbbreviation.CIN),
   },
   {
     id: MLBTeamId.CLE,
-    logo: getMLBLogo(MLBTeamId.CLE),
+    logo: getMLBLogo(MLBTeamAbbreviation.CLE),
   },
   {
     id: MLBTeamId.COL,
-    logo: getMLBLogo(MLBTeamId.COL),
+    logo: getMLBLogo(MLBTeamAbbreviation.COL),
   },
   {
     id: MLBTeamId.DET,
-    logo: getMLBLogo(MLBTeamId.DET),
+    logo: getMLBLogo(MLBTeamAbbreviation.DET),
   },
   {
     id: MLBTeamId.HOU,
-    logo: getMLBLogo(MLBTeamId.HOU),
+    logo: getMLBLogo(MLBTeamAbbreviation.HOU),
   },
   {
     id: MLBTeamId.KC,
-    logo: getMLBLogo(MLBTeamId.KC),
+    logo: getMLBLogo(MLBTeamAbbreviation.KC),
   },
   {
     id: MLBTeamId.LAA,
-    logo: getMLBLogo(MLBTeamId.LAA),
+    logo: getMLBLogo(MLBTeamAbbreviation.LAA),
   },
   {
     id: MLBTeamId.LAD,
-    logo: getMLBLogo(MLBTeamId.LAD),
+    logo: getMLBLogo(MLBTeamAbbreviation.LAD),
   },
   {
     id: MLBTeamId.MIA,
-    logo: getMLBLogo(MLBTeamId.MIA),
+    logo: getMLBLogo(MLBTeamAbbreviation.MIA),
   },
   {
     id: MLBTeamId.MIL,
-    logo: getMLBLogo(MLBTeamId.MIL),
+    logo: getMLBLogo(MLBTeamAbbreviation.MIL),
   },
   {
     id: MLBTeamId.MIN,
-    logo: getMLBLogo(MLBTeamId.MIN),
+    logo: getMLBLogo(MLBTeamAbbreviation.MIN),
   },
   {
     id: MLBTeamId.NYM,
-    logo: getMLBLogo(MLBTeamId.NYM),
+    logo: getMLBLogo(MLBTeamAbbreviation.NYM),
   },
   {
     id: MLBTeamId.NYY,
-    logo: getMLBLogo(MLBTeamId.NYY),
+    logo: getMLBLogo(MLBTeamAbbreviation.NYY),
   },
   {
     id: MLBTeamId.OAK,
-    logo: getMLBLogo(MLBTeamId.OAK),
+    logo: getMLBLogo(MLBTeamAbbreviation.OAK),
   },
   {
     id: MLBTeamId.PHI,
-    logo: getMLBLogo(MLBTeamId.PHI),
+    logo: getMLBLogo(MLBTeamAbbreviation.PHI),
   },
   {
     id: MLBTeamId.PIT,
-    logo: getMLBLogo(MLBTeamId.PIT),
+    logo: getMLBLogo(MLBTeamAbbreviation.PIT),
   },
   {
     id: MLBTeamId.SD,
-    logo: getMLBLogo(MLBTeamId.SD),
+    logo: getMLBLogo(MLBTeamAbbreviation.SD),
   },
   {
     id: MLBTeamId.SEA,
-    logo: getMLBLogo(MLBTeamId.SEA),
+    logo: getMLBLogo(MLBTeamAbbreviation.SEA),
   },
   {
     id: MLBTeamId.SF,
-    logo: getMLBLogo(MLBTeamId.SF),
+    logo: getMLBLogo(MLBTeamAbbreviation.SF),
   },
   {
     id: MLBTeamId.STL,
-    logo: getMLBLogo(MLBTeamId.STL),
+    logo: getMLBLogo(MLBTeamAbbreviation.STL),
   },
   {
     id: MLBTeamId.TB,
-    logo: getMLBLogo(MLBTeamId.TB),
+    logo: getMLBLogo(MLBTeamAbbreviation.TB),
   },
   {
     id: MLBTeamId.TEX,
-    logo: getMLBLogo(MLBTeamId.TEX),
+    logo: getMLBLogo(MLBTeamAbbreviation.TEX),
   },
   {
     id: MLBTeamId.TOR,
-    logo: getMLBLogo(MLBTeamId.TOR),
+    logo: getMLBLogo(MLBTeamAbbreviation.TOR),
   },
   {
     id: MLBTeamId.WSH,
-    logo: getMLBLogo(MLBTeamId.WSH),
+    logo: getMLBLogo(MLBTeamAbbreviation.WSH),
   },
 ];

@@ -1,36 +1,36 @@
 import { NBATeamInfo } from "../hurst-family-pool-types";
 
 export enum NBATeamId {
-  ATL = 1,
-  BOS = 2,
-  BKN = 3,
-  CHA = 4,
-  CHI = 5,
-  CLE = 6,
-  DAL = 7,
-  DEN = 8,
-  DET = 9,
-  GSW = 10,
-  HOU = 11,
-  IND = 12,
-  LAC = 13,
-  LAL = 14,
-  MEM = 15,
-  MIA = 16,
-  MIL = 17,
-  MIN = 18,
-  NOP = 19,
-  NYK = 20,
-  OKC = 21,
-  ORL = 22,
-  PHI = 23,
-  PHX = 24,
-  POR = 25,
-  SAC = 26,
-  SAS = 27,
-  TOR = 28,
-  UTA = 29,
-  WAS = 30,
+  ATL = 1, // Atlanta Hawks
+  BOS = 2, // Boston Celtics
+  BKN = 17, // Brooklyn Nets
+  CHA = 30, // Charlotte Hornets
+  CHI = 4, // Chicago Bulls
+  CLE = 5, // Cleveland Cavaliers
+  DAL = 6, // Dallas Mavericks
+  DEN = 7, // Denver Nuggets
+  DET = 8, // Detroit Pistons
+  GSW = 9, // Golden State Warriors
+  HOU = 10, // Houston Rockets
+  IND = 11, // Indiana Pacers
+  LAC = 12, // LA Clippers
+  LAL = 13, // Los Angeles Lakers
+  MEM = 29, // Memphis Grizzlies
+  MIA = 14, // Miami Heat
+  MIL = 15, // Milwaukee Bucks
+  MIN = 16, // Minnesota Timberwolves
+  NOP = 3, // New Orleans Pelicans
+  NYK = 18, // New York Knicks
+  OKC = 25, // Oklahoma City Thunder
+  ORL = 19, // Orlando Magic
+  PHI = 20, // Philadelphia 76ers
+  PHX = 21, // Phoenix Suns
+  POR = 22, // Portland Trail Blazers
+  SAC = 23, // Sacramento Kings
+  SAS = 24, // San Antonio Spurs
+  TOR = 28, // Toronto Raptors
+  UTA = 26, // Utah Jazz
+  WAS = 27, // Washington Wizards
 }
 
 export const NBA_TEAM_INFO: NBATeamInfo[] = [

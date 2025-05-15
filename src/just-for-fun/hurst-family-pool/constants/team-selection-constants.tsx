@@ -19,9 +19,29 @@ export const TEAM_SELECTIONS: TeamSelection[] = [
     teamId: 3,
     selections: { nbaId: NBATeamId.UTA, mlbId: MLBTeamId.MIA },
   },
-  // { teamName: "Nicolas", teamId: 4, selections: { nbaId: NBATeamId.SAS } },
-  // { teamName: "Mom", teamId: 5, selections: { nbaId: NBATeamId.OKC } },
-  // { teamName: "Dad", teamId: 3, selections: { nbaId: NBATeamId.IND } },
-  // { teamName: "Erin", teamId: 4, selections: { nbaId: NBATeamId.SAC } },
-  // { teamName: "Amanda", teamId: 5, selections: { nbaId: NBATeamId.DEN } },
+  {
+    teamName: "Nicolas",
+    teamId: 4,
+    selections: { nbaId: NBATeamId.SAS, mlbId: MLBTeamId.CWS },
+  },
+  {
+    teamName: "Mom",
+    teamId: 5,
+    selections: { nbaId: NBATeamId.OKC, mlbId: MLBTeamId.BAL },
+  },
+  {
+    teamName: "Dad",
+    teamId: 3,
+    selections: { nbaId: NBATeamId.IND, mlbId: MLBTeamId.BOS },
+  },
+  {
+    teamName: "Erin",
+    teamId: 4,
+    selections: { nbaId: NBATeamId.SAC, mlbId: MLBTeamId.DET },
+  },
+  {
+    teamName: "Amanda",
+    teamId: 5,
+    selections: { nbaId: NBATeamId.DEN, mlbId: MLBTeamId.CIN },
+  },
 ];

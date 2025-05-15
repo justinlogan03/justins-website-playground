@@ -8,12 +8,11 @@ type NbaTeamProps = {
 
 export const getNbaTeamScore = async ({
   nbaTeamIds,
-  season,
 }: NbaTeamProps): Promise<NBATeamScoresResponse[]> => {
   const res = await fetch("/api/getNBATeamScore", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ nbaTeamIds, season }),
+    body: JSON.stringify({ nbaTeamIds }),
   });
 
   const { nbaTeamScoresResponse } = await res.json();
